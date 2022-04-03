@@ -25,7 +25,14 @@ yarn start
 ## Deploy on Firebase
 ```bash
 cd gmail-redesign-code
+
+# Install dependencies
 npm install -g firebase-tools
 
+# Deploy with firebase
+firebase login
+firebase init
+npm run build
+firebase deploy ## https://clone-e0ec2.web.app/
 ```
 
