@@ -1,5 +1,19 @@
 [
-    {
+  {
+    "participant_id": 0,
+    "participant_email": "hsyalexliu0809@gmail.com",
+    "from": "adminrec@ucsd.edu",
+    "from_name": "Chancellor Khosla",
+    "mailfrom": "host@e2ma.net",
+    "to": "hsyalexliu0809@gmail.com",
+    "body": "UC San Diego has been shaped by exceptional scholars who challenge expectations to make our world better, including pioneers of climate change research like Roger Revelle and geochemist Charles David Keeling of the Keeling Curve",
+    "subject": "Subject Via E2MA",
+    "read": false,
+    "category": "Primary",
+    "date": "8:45 AM",
+    "id": 0
+  },  
+  {
     "participant_id": 0,
     "participant_email": "hsyalexliu0809@gmail.com",
     "from": "test@ucsd.edu",
@@ -8,7 +22,7 @@
     "to": "hsyalexliu0809@gmail.com",
     "body": "Hi, this is a test email",
     "subject": "Subject 1",
-    "read": false,
+    "read": true,
     "category": "Primary",
     "date": "7:45 AM",
     "id": 0

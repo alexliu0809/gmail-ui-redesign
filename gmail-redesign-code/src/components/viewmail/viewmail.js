@@ -1,5 +1,5 @@
 import { Avatar, Button, Checkbox } from "@material-ui/core";
-import { MoreVert, Refresh, ArrowBack } from "@material-ui/icons";
+import { MoreVert, Refresh, ArrowBack, ArrowDropDown } from "@material-ui/icons";
 import React from "react";
 import { useLocalContext } from "../../context/context";
 import "./styles.css";
@@ -10,6 +10,10 @@ import { useNavigate } from "react-router-dom";
 const ViewMail = ({ mailState }) => {
   const { drawerOpen, currentUser } = useLocalContext();
   const navigate = useNavigate();
+  const getDomainFromEmail = (email) => {
+    let domain = email.split('@').pop()
+    return domain
+  }
 
   return (
     <div className={`main ${!drawerOpen && "main--fullWidth"}`}>
@@ -28,11 +32,22 @@ const ViewMail = ({ mailState }) => {
           <div className="viewMail__sender">
             <div className="viewMail__senderWrapper">
               <h1 className="viewMail__senderName">{mailState.state.from_name}</h1>
-              <p className="viewMail__senderMail">{`<${mailState.state.from}>`}</p>
+              <p className="viewMail__senderMail">{
+              `<${mailState.state.from}>`} 
+              { getDomainFromEmail(mailState.state.from) === getDomainFromEmail(mailState.state.mailfrom)
+                ? ("") : (
+                    ` via ${getDomainFromEmail(mailState.state.mailfrom)}`
+                )
+              }
+              </p> 
+              
             </div>
             <p className="viewMail__info">to {
               mailState.state.participant_email === mailState.state.to ? ("me") : (`${mailState.state.to}`)
-            }</p>
+            }
+            <ArrowDropDown style={{ fontSize: '1.0rem' }}/>
+            </p>
+            
           </div>
         </div>
 
