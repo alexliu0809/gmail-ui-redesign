@@ -1,4 +1,4 @@
-import { Avatar, Button, Checkbox, makeStyles } from "@material-ui/core";
+import { Avatar, Button, Checkbox, makeStyles, Tooltip } from "@material-ui/core";
 import { MoreVert, Refresh, ArrowBack, ArrowDropDown, Block } from "@material-ui/icons";
 import React from "react";
 import { useLocalContext } from "../../context/context";
@@ -16,6 +16,10 @@ const ViewMail = ({ mailState }) => {
   }
 
   const useStyles = makeStyles({
+    tooltip: {
+      fontSize: "0.9rem",
+    },
+
     myArrowDropDown: {
       "vertical-align": "bottom",
       "fontSize": '1.0rem',
@@ -67,7 +71,14 @@ const ViewMail = ({ mailState }) => {
             <p className="viewMail__info">to {
               mailState.state.participant_email === mailState.state.to ? ("me") : (`${mailState.state.to}`)
             }
-              <ArrowDropDown className={classes.myArrowDropDown}/>
+              <Tooltip 
+              title="Show details"
+              placement="bottom"
+              classes={{tooltip: classes.tooltip}}
+              >
+                <ArrowDropDown className={classes.myArrowDropDown}/>
+              </Tooltip>
+              
             </p>
 
             

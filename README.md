@@ -18,6 +18,7 @@ npm install
 yarn add uuid
 yarn add react-router-dom
 yarn add firebase
+yarn add react-tooltip
 # Start locally
 yarn start
 ```
