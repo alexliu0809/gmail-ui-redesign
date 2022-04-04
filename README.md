@@ -39,6 +39,6 @@ firebase deploy ## https://clone-e0ec2.web.app/
 
 ## Deploy the Latest
 ```
-npm run build 
+npm run build
 firebase deploy
 ```

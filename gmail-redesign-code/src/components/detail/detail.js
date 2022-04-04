@@ -7,17 +7,17 @@ import { Popover, makeStyles } from '@material-ui/core'
 import './styles.css'
 
 // PaperProps: Size of the container
-// Todo: format the content with div: via__popoverContainer
+// Todo: format the content with div: detail__popoverContainer
 
-const Via = ({show=false, setShow, anchorEl=null, setanchorEl, mailState}) => {
+const Detail = ({show=false, setShow, anchorEl, setanchorEl, mailState}) => {
 
     const handleClose = () => {
-        setShow(false);
         setanchorEl(null);
+        setShow(false);
     };
 
     return (
-            <Popover className='via__popover'
+            <Popover className='detail__popover'
             open={show}
             anchorEl={anchorEl}
             anchorOrigin={{
@@ -34,13 +34,19 @@ const Via = ({show=false, setShow, anchorEl=null, setanchorEl, mailState}) => {
             onClose={handleClose}
             >
 
-                <div className='via__popoverContainer'>
-                    Via
+
+
+
+                <div className='detail__popoverContainer'>
+                    <p> Email: {mailState.state.from} </p>
+                    <p> Name: {mailState.state.from_name} </p>
+                    <p> To: {mailState.state.to} </p>
                 </div>
+
 
 
             </Popover>
     )
 }
 
-export default Via
+export default Detail

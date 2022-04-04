@@ -3,7 +3,7 @@ import { MoreVert, Refresh, ArrowBack, ArrowDropDown, Block } from "@material-ui
 import React, { useState } from "react";
 import { useLocalContext } from "../../context/context";
 import "./styles.css";
-import {Via} from ".."
+import {Via, Detail} from ".."
 import { useNavigate } from "react-router-dom";
 
 
@@ -11,6 +11,9 @@ const ViewMail = ({ mailState }) => {
   const { drawerOpen, currentUser } = useLocalContext();
   const [ showDetails, setshowDetails ] = useState(false);
   const [ showDetailsAnchor, setshowDetailsAnchor ] = useState(null);
+
+  const [ showVia, setshowVia ] = useState(false);
+  const [ viaAnchor, setviaAnchor ] = useState(null);
 
   const navigate = useNavigate();
   const getDomainFromEmail = (email) => {
@@ -62,6 +65,7 @@ const ViewMail = ({ mailState }) => {
                   <p className="viewMail__senderMail">
                     &nbsp;
                   <a className="viewMail__senderMail viewMail__senderMailVia"
+                  onClick={(e) => {setshowVia(true);setviaAnchor(e.target)}}
                   >via</a>
                     &nbsp;
                     {getDomainFromEmail(mailState.state.mailfrom)}
@@ -69,6 +73,13 @@ const ViewMail = ({ mailState }) => {
                   
                 )
               }
+              <Via 
+              show={showVia}
+              setShow={setshowVia}
+              anchorEl={viaAnchor}
+              setanchorEl={setviaAnchor}
+              mailState={mailState}
+              />
             </div>
             <p className="viewMail__info">to {
               mailState.state.participant_email === mailState.state.to ? ("me") : (`${mailState.state.to}`)
@@ -82,7 +93,7 @@ const ViewMail = ({ mailState }) => {
                 onClick={(e) => {setshowDetails(true); setshowDetailsAnchor(e.currentTarget)}}
                 />
               </Tooltip>
-              <Via 
+              <Detail 
               show={showDetails}
               setShow={setshowDetails}
               anchorEl={showDetailsAnchor}
@@ -108,6 +119,7 @@ const ViewMail = ({ mailState }) => {
           </Button>
         </div>
       </div>
+
     </div>
   );
 };
