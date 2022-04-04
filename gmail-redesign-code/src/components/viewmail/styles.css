@@ -36,6 +36,13 @@
     color: #555;
     letter-spacing: 0.3px;
   }
+
+  .viewMail__senderMailVia{
+    color: #222;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
   .viewMail__info {
     font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
     font-size: 0.75rem;
