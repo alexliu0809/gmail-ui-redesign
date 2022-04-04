@@ -12,8 +12,8 @@ const Signin = () =>{
     // setShowSignup is of class SetStateAction
     const [showSignup, setShowSignup] = useState(false);
     const [loadingTime, setloadingTime] = useState(false);
-    const [userEmail, setuserEmail] = useState('');
-    const [userPassword, setuserPassword] = useState('');
+    const [userEmail, setuserEmail] = useState('hsyalexliu0809@gmail.com');
+    const [userPassword, setuserPassword] = useState('abcd1234');
     const [emailFormatError, setemailFormatError] = useState('')
     const [passwordWrongError, setpasswordWrongError] = useState({state:false,msg:''})
     
