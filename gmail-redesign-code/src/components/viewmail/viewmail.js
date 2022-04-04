@@ -1,14 +1,17 @@
 import { Avatar, Button, Checkbox, makeStyles, Tooltip } from "@material-ui/core";
 import { MoreVert, Refresh, ArrowBack, ArrowDropDown, Block } from "@material-ui/icons";
-import React from "react";
+import React, { useState } from "react";
 import { useLocalContext } from "../../context/context";
 import "./styles.css";
-
+import {Via} from ".."
 import { useNavigate } from "react-router-dom";
 
 
 const ViewMail = ({ mailState }) => {
   const { drawerOpen, currentUser } = useLocalContext();
+  const [ showDetails, setshowDetails ] = useState(false);
+  const [ showDetailsAnchor, setshowDetailsAnchor ] = useState(null);
+
   const navigate = useNavigate();
   const getDomainFromEmail = (email) => {
     let domain = email.split('@').pop()
@@ -58,15 +61,14 @@ const ViewMail = ({ mailState }) => {
                 ? ("") : (
                   <p className="viewMail__senderMail">
                     &nbsp;
-                  <a className="viewMail__senderMail viewMail__senderMailVia">via</a>
+                  <a className="viewMail__senderMail viewMail__senderMailVia"
+                  >via</a>
                     &nbsp;
                     {getDomainFromEmail(mailState.state.mailfrom)}
                   </p>
                   
                 )
               }
-
-              
             </div>
             <p className="viewMail__info">to {
               mailState.state.participant_email === mailState.state.to ? ("me") : (`${mailState.state.to}`)
@@ -76,15 +78,24 @@ const ViewMail = ({ mailState }) => {
               placement="bottom"
               classes={{tooltip: classes.tooltip}}
               >
-                <ArrowDropDown className={classes.myArrowDropDown}/>
+                <ArrowDropDown className={classes.myArrowDropDown}
+                onClick={(e) => {setshowDetails(true); setshowDetailsAnchor(e.currentTarget)}}
+                />
               </Tooltip>
-              
+              <Via 
+              show={showDetails}
+              setShow={setshowDetails}
+              anchorEl={showDetailsAnchor}
+              setanchorEl={setshowDetailsAnchor}
+              mailState={mailState}
+              />
             </p>
-
-            
-            
+                        
           </div>
+
         </div>
+
+        
 
         <div className="viewMail__bodyBtm">
           <p className="viewMail__bodyText">{mailState.state.body}</p>
