@@ -117,7 +117,7 @@ const Mail = ({ mailState }) => {
           </div>
           <div className="mail__titleSubtitle">
             <p className="mail__text">{mailState.state.subject}</p>
-            <p className="mail__text mail__body"> - {mailState.state.body}</p>
+            <p className="mail__text mail__body">&nbsp;-&nbsp;{mailState.state.body}</p>
           </div>
           <div className="mail__date__container">
             <p className="mail__text">{mailState.state.date}</p>
