@@ -1,11 +1,93 @@
-.detail__popoverContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-   
+.detail__popover{
+    display: inline-block;
 }
 
+/* max-width: 50%; */
+.detail__popoverContainer {
+    outline: none;
+    background-color: #fff;
+    box-sizing: border-box;
+    cursor: auto;
+    max-height: 360px;
+    min-width: 360px;
+    overflow: auto;
+    position: absolute;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    border: 1px solid rgba(0,0,0,0.2);
+    padding: 5px;
+    display: inline-block;
+}
+
+.detail__wrapper{
+    outline: none;
+    padding: 8px 16px 12px 16px;
+    font-size: .875rem;
+}
+
+.detail__table{
+    border-spacing: 0;
+    line-height: 20px;
+    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+}
+
+.detail__table__tr{
+}
+
+.detail__table__tr__tdheader{
+    color: #999;
+    padding: 2px 16px 2px 0;
+    text-align: right;
+    white-space: nowrap;
+    vertical-align: top;
+    width: 0%;
+}
+
+.detail__table__tr__tdcontent{
+    padding: 2px 0;
+    width: auto;
+    white-space: normal;
+    vertical-align: top;
+}
+
+.detail__outter__most__span{
+    vertical-align: top;
+    cursor: auto;
+}
+
+.detail__span__from__name{
+    -moz-osx-font-smoothing: grayscale;
+    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+    font-size: .875rem;
+    letter-spacing: .2px;
+    color: #202124;
+    line-height: 20px;
+    font-weight: bold;
+    white-space: nowrap;
+    display: inline;
+    vertical-align: top;
+}
 /*  width: 190px;
     height: 190px;
 */
+
+.detail__span__from__email{
+    vertical-align: top;
+    color: #555;
+}
+
+.detail__table__image{
+    background: no-repeat url(/public/assets/lock.png) -22px -22px;
+    display: inline-block;
+    height: 18px;
+    margin-top: -2px;
+    vertical-align: text-top;
+    width: 18px;
+}
+
+.detail__table__a{
+    color: #222;
+    cursor: pointer;
+    text-decoration: underline;
+    white-space: normal; 
+}

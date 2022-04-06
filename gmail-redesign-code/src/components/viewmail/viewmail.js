@@ -5,6 +5,7 @@ import { useLocalContext } from "../../context/context";
 import "./styles.css";
 import {Via, Detail} from ".."
 import { useNavigate } from "react-router-dom";
+import { getDomainFromEmail } from "../util/utils";
 
 
 const ViewMail = ({ mailState }) => {
@@ -16,10 +17,6 @@ const ViewMail = ({ mailState }) => {
   const [ viaAnchor, setviaAnchor ] = useState(null);
 
   const navigate = useNavigate();
-  const getDomainFromEmail = (email) => {
-    let domain = email.split('@').pop()
-    return domain
-  }
 
   const useStyles = makeStyles({
     tooltip: {
