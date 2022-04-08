@@ -8,28 +8,28 @@
 }
 
 
-p, ol, ul {
+.via__popoverContainer p, ol, ul {
     margin: .5rem 0 .5rem;
     font-family: 'Google Sans Text', 'Open Sans', Roboto,Helvetica Neue,sans-serif;
 }
 
-li {
+.via__popoverContainer li {
     list-style-type: none;
     margin-left: 0;
     padding-left: 1rem;
 }
 
-h2 {
+.via__popoverContainer h2 {
     font-size: 1.5rem;
     line-height: 2rem;
     margin: .75rem 0 .5rem;
 }
 
-h1 {
+.via__popoverContainer h1 {
     line-height: 2rem;
 }
 
-h1, h2, h3, h4, h5 {
+.via__popoverContainer h1, h2, h3, h4, h5 {
     color: #1f1f1f;
     font-family: 'Google Sans', 'Google Sans Text', Roboto, sans-serif;
     font-weight: 400;
