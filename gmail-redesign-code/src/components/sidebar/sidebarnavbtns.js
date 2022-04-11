@@ -2,7 +2,7 @@
 import { Avatar } from "@material-ui/core";
 import { Badge } from "@material-ui/core";
 import { VideocamOff } from "@material-ui/icons";
-import { Inbox, Keyboard, Videocam } from "@material-ui/icons";import React, { useState } from "react";
+import { Inbox, Send, Mail, Report,Videocam } from "@material-ui/icons";import React, { useState } from "react";
 import { useLocalContext } from '../../context/context'
 import { useMailContext } from '../../context/mailcontext'
 
@@ -25,6 +25,12 @@ const SidebarNavBtn = () => {
 
 export default SidebarNavBtn;
 
+const vals = {
+    "Inbox": <Inbox className="sidebar__icon"/>, 
+    'Sent': <Send className="sidebar__icon"/>, 
+    'All Mail': <Mail className="sidebar__icon"/>, 
+    'Spam': <Report className="sidebar__icon"/> }
+
 const SideButton = (props) => {
     const navigate = useNavigate();
 
@@ -44,7 +50,8 @@ const SideButton = (props) => {
             >
                   {drawerOpen ? (
                       <>
-                      <Inbox className="sidebar__icon" />
+                      {/* <Inbox className="sidebar__icon" /> */}
+                      {vals[props.name]}
                         <p 
                         className={`${(props.name === 'Inbox' || activeSideBarTab === props.name) 
                         && "sidebar__btnLeft__bold__p"}`}
@@ -65,7 +72,7 @@ const SideButton = (props) => {
                         primaryUnreadNumber+socialUnreadNumber+promoUnreadNumber > 0 ? (
                             <p>{primaryUnreadNumber+socialUnreadNumber+promoUnreadNumber}</p>
                         ) : (
-                            <p></p>
+                        <p></p>
                         )
                         
                     ) : (

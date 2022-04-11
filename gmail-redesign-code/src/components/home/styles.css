@@ -1,6 +1,7 @@
 
 .home {
-    background-image: url("/public/assets/bg.jpg");
+    /* background-image: url("/public/assets/bg.jpg"); */
+    background-color: #4A5B7E;
     background-repeat: no-repeat, repeat;
     background-size: cover;
     width: 100vw;
