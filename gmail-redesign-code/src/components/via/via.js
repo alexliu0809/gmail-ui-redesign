@@ -19,15 +19,17 @@ const Via = ({show=false, setShow, anchorEl=null, setanchorEl, mailState}) => {
     return (
             <Popover className='via__popover'
             open={show}
-            anchorEl={anchorEl}
+            //anchorEl={anchorEl}
+            anchorReference="anchorPosition"
+            anchorPosition={{ top: 200, left: 5000 }}
             anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'center',
-              }}
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
+            vertical: 'top',
+            horizontal: 'right',
+            }}
+            transformOrigin={{
+            vertical: 'top',
+            horizontal: 'right',
+            }}
             PaperProps={{
                 style: { width: '400px', height: '400px' },
             }}
