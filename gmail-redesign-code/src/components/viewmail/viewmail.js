@@ -9,12 +9,9 @@ import { getDomainFromEmail } from "../util/utils";
 
 
 const ViewMail = ({ mailState }) => {
-  const { drawerOpen, currentUser } = useLocalContext();
+  const { drawerOpen, currentUser, setshowVia, showVia, setviaAnchor, viaAnchor } = useLocalContext();
   const [ showDetails, setshowDetails ] = useState(false);
   const [ showDetailsAnchor, setshowDetailsAnchor ] = useState(null);
-
-  const [ showVia, setshowVia ] = useState(false);
-  const [ viaAnchor, setviaAnchor ] = useState(null);
 
   const navigate = useNavigate();
 
@@ -61,9 +58,9 @@ const ViewMail = ({ mailState }) => {
                 ? ("") : (
                   <p className="viewMail__senderMail">
                     &nbsp;
-                  <a className="viewMail__senderMail viewMail__senderMailVia"
-                  onClick={(e) => {setshowVia(true);setviaAnchor(e.target)}}
-                  >via</a>
+                    <a className="viewMail__senderMail viewMail__senderMailVia"
+                    onClick={(e) => {setshowVia(true);setviaAnchor(e.target)}}
+                    >via</a>
                     &nbsp;
                     {getDomainFromEmail(mailState.state.mailfrom)}
                   </p>

@@ -37,7 +37,7 @@ const Via = ({show=false, setShow, anchorEl=null, setanchorEl, mailState}) => {
             >
 
                 <div className='via__popoverContainer'>
-                    <h1>Extra info next to sender’s name</h1>
+                    <h1>Extra info next to sender's name</h1>
                     <div class="article-content-container">
                         <div class="cc">
                             <p>You may see extra information next to someone's name when they send you a message. For example, you could get an email from your bank, but the sender's email address is from a different site.</p>

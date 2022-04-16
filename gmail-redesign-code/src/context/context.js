@@ -16,6 +16,8 @@ export function ContextProvider({ children }){
     const [activeSideBarTab, setactiveSideBarTab] = useState("Inbox");
     const [composeOpen, setcomposeOpen] = useState(false);
     const [activeMainTab, setactiveMainTab] = useState("Primary")
+    const [ showVia, setshowVia ] = useState(false);
+    const [ viaAnchor, setviaAnchor ] = useState(null);
     
     useEffect(() => {
         // some logic is executed whenever val in [] is changed
@@ -44,7 +46,11 @@ export function ContextProvider({ children }){
         composeOpen,
         setcomposeOpen,
         activeMainTab, 
-        setactiveMainTab
+        setactiveMainTab,
+        showVia, 
+        setshowVia,
+        viaAnchor, 
+        setviaAnchor,
     };
 
     return(
