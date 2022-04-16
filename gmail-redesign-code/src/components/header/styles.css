@@ -189,3 +189,7 @@
 .home__popover__footer > span {
   margin: 10px;
 }
+
+.home__logo {
+  cursor: pointer;
+}

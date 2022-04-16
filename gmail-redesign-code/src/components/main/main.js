@@ -22,7 +22,7 @@ import { Mail } from "..";
 const Main = () => {
     const { drawerOpen, activeSideBarTab, activeMainTab, setactiveMainTab } = useLocalContext();
     const { mailsOfWindow, primaryUnreadNumber, socialUnreadNumber, promoUnreadNumber } = useMailContext();
-    console.log("mailsOfWindow", mailsOfWindow)
+    // console.log("mailsOfWindow", mailsOfWindow)
   return (
     <div className={`main ${drawerOpen && "main--fullWidth"}`}>
 

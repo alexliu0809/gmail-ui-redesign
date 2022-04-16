@@ -6,7 +6,7 @@ import './styles.css'
 // can take an argument when being initiated, which in this case is showSignup defined in signin.js
 // It's passed as an obj
 const Signup = (myArgShowSignup) => {
-    console.log(myArgShowSignup)
+    // console.log(myArgShowSignup)
 
     const toggleSignup = (e)=>{
         e.preventDefault()

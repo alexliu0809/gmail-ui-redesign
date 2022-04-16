@@ -11,13 +11,13 @@ import {v4 as uuidv4} from "uuid";
 import { useEffect } from "react";
 
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 
 const Mail = ({ mailState }) => {
   const parentARef = useRef();
 
-  console.log("Incoming mailState for Mail", mailState);
+  //console.log("Incoming mailState for Mail", mailState);
 
   const [starred, setstarred] = useState(false);
   const [important, setimportant] = useState(false);
@@ -28,6 +28,8 @@ const Mail = ({ mailState }) => {
   const [id, setid] = useState("");
 
   const navigate = useNavigate();
+
+  const {user_id} = useParams();
   
   //console.log("read initial state", read);
   
@@ -37,7 +39,7 @@ const Mail = ({ mailState }) => {
 
   const showMailAndUpdateRead =(e) => {
     // Don't know trigger show mail if click on star / important / select
-    console.log(e.target)
+    // console.log(e.target)
     if (e.target.type  === "checkbox" || e.target.nodeName === "svg" || e.target.nodeName === "path"){
       return;
     }
@@ -49,7 +51,7 @@ const Mail = ({ mailState }) => {
     }
     
     // redirect to mailState.state.full_id
-    navigate(`/${mailState.state.full_id}`)
+    navigate(`/id/${user_id}/${mailState.state.full_id}`)
   }
 
 
@@ -58,15 +60,15 @@ const Mail = ({ mailState }) => {
     setstarred(props.starred)
     setimportant(props.important)
 
-    console.log("updateMailPreference")
+    // console.log("updateMailPreference")
 
     db.collection('MailPreference').doc(currentUser.email)
     .collection("Mail").doc(id).
     set({id:id, starred:props.starred, important:props.important})
     .then( () =>{
-      console.log("Updated Properly")
+      // console.log("Updated Properly")
     }).catch((err)=>{
-      console.log("error", err)
+      // console.log("error", err)
     })
 
   }

@@ -11,6 +11,7 @@ import { PersonAddOutlined } from '@material-ui/icons'
 import { Button } from '@material-ui/core'
 import { auth } from "../../lib/firebase"
 import { useLocalContext } from '../../context/context'
+import { useNavigate,useParams } from "react-router-dom";
 
 // JS Styling
 const useStyles = makeStyles((theme) => ({
@@ -31,13 +32,16 @@ const Header = () => {
     const id = open ? "simple-popover" : undefined;
 
     const {currentUser, setdrawerOpen, drawerOpen} = useLocalContext();
+
+    const navigate = useNavigate();
+    const {user_id} = useParams();
     
     const signout = () => {
         auth.signOut();
     }
     
     const handleAvatarClick = (event) => {
-        console.log(currentUser)
+        // console.log(currentUser)
         setAnchorEl(event.currentTarget);
         };
 
@@ -52,7 +56,10 @@ const Header = () => {
                 className="home__menuIcon"
                 onClick={() => setdrawerOpen(!drawerOpen)}
                 />
-                <img className="home__logo" src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_dark_1x_r2.png" alt="Gmail" />
+                <img className="home__logo" 
+                src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_dark_1x_r2.png" alt="Gmail" 
+                onClick={() => navigate(`/id/${user_id}/`)}
+                />
             </div>
 
             <div className='home__center'>

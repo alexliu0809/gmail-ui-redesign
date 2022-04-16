@@ -32,7 +32,7 @@ export function MailContextProvider({children}){
     const {currentUser, activeSideBarTab, activeMainTab} = useLocalContext();
 
     const GenMailsFromConfFile = () =>{
-        console.log("GenMailsFromConfFile")
+        // console.log("GenMailsFromConfFile")
         
         // console.log("Mails",mails_data);
         for (let i = 0; i < mails_data.length; i++) {
@@ -51,7 +51,7 @@ export function MailContextProvider({children}){
             id: mails_data[i].id,
         });
 
-          console.log("instance",instance,instance.state.from,instance.state.from_name);
+          // console.log("instance",instance,instance.state.from,instance.state.from_name);
           mailStateArray.push(instance)
         }
 
@@ -69,7 +69,7 @@ export function MailContextProvider({children}){
             db.collection("MailPreference")
             .doc(currentUser.email)
             .collection("Mail").onSnapshot((snapshot) => {
-               console.log(snapshot.docs)
+               // console.log(snapshot.docs)
             })
         }
     },[currentUser])
@@ -79,7 +79,7 @@ export function MailContextProvider({children}){
     },[])
 
     useEffect (() => {
-        console.log("allMailStates", allMailStates)
+        // console.log("allMailStates", allMailStates)
         setprimaryUnreadNumber(allMailStates.filter((e) => {
             return e.state.read === false && e.state.category === "Primary"
         }).length);
@@ -95,7 +95,7 @@ export function MailContextProvider({children}){
 
     useEffect (() => {
         if (activeSideBarTab === 'Inbox'){
-            console.log("New mailsType", activeMainTab, allMailStates.filter((mail)=>mail.state.category===activeMainTab))
+            // console.log("New mailsType", activeMainTab, allMailStates.filter((mail)=>mail.state.category===activeMainTab))
             setmailsOfWindow(allMailStates.filter((mail)=>mail.state.category===activeMainTab))
         } else if (activeSideBarTab === 'All Mail'){
             setmailsOfWindow(allMailStates.filter(()=>true))

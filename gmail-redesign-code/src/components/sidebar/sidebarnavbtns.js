@@ -6,7 +6,7 @@ import { Inbox, Send, Mail, Report,Videocam } from "@material-ui/icons";import R
 import { useLocalContext } from '../../context/context'
 import { useMailContext } from '../../context/mailcontext'
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 
 // <SideButton name="Starred" />
@@ -33,6 +33,7 @@ const vals = {
 
 const SideButton = (props) => {
     const navigate = useNavigate();
+    const {user_id} = useParams();
 
     const {drawerOpen, setactiveSideBarTab, activeSideBarTab} = useLocalContext();
     const {primaryUnreadNumber, socialUnreadNumber, promoUnreadNumber} = useMailContext();
@@ -41,7 +42,7 @@ const SideButton = (props) => {
         <div className={`sidebar__btn sidebar__topBtn ${
             !drawerOpen && "sidebar__btnClose"
               } ${activeSideBarTab === props.name && "sidebar__active"}`}
-              onClick={() => {setactiveSideBarTab(props.name);navigate('/')}}
+              onClick={() => {setactiveSideBarTab(props.name);navigate(`/id/${user_id}/`)}}
               >
             <div
             className={`sidebar__btnLeft ${

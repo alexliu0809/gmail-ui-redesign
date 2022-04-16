@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useLocalContext } from "../../context/context";
 import "./styles.css";
 import {Via, Detail} from ".."
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useParams } from "react-router-dom";
 import { getDomainFromEmail } from "../util/utils";
 
 
@@ -14,6 +14,7 @@ const ViewMail = ({ mailState }) => {
   const [ showDetailsAnchor, setshowDetailsAnchor ] = useState(null);
 
   const navigate = useNavigate();
+  const {user_id} = useParams();
 
   const useStyles = makeStyles({
     tooltip: {
@@ -37,7 +38,7 @@ const ViewMail = ({ mailState }) => {
   return (
     <div className={`main ${!drawerOpen && "main--fullWidth"}`}>
       <div className="main__controlBtns">
-        <ArrowBack onClick={() => {navigate("/")}}/>
+        <ArrowBack onClick={() => {navigate(`/id/${user_id}/`)}}/>
         <> </>
         <Checkbox color="secondary" className="main__check" />
         <Refresh />

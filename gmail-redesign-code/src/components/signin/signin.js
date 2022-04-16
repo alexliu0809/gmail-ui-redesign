@@ -2,21 +2,35 @@ import { Button, TextField } from "@material-ui/core"
 import React, { useState } from 'react'
 import Signup from '../signup/signup.js'
 import { auth } from "../../lib/firebase"
+import {ErrorSignUp, ErrorSignIn} from "../error/error"
+import { useEffect } from "react";
+
+import { useParams } from "react-router-dom";
+
+import { useLocalContext } from '../../context/context'
 
 import './styles.css'
 
 // label: default text; type: Textfield type
+
 
 const Signin = () =>{
     // define a bunch of states, initial state false.
     // setShowSignup is of class SetStateAction
     const [showSignup, setShowSignup] = useState(false);
     const [loadingTime, setloadingTime] = useState(false);
-    const [userEmail, setuserEmail] = useState('hsyalexliu0809@gmail.com');
+
+    const { appState } = useLocalContext();
+    
     const [userPassword, setuserPassword] = useState('abcd1234');
+
     const [emailFormatError, setemailFormatError] = useState('')
     const [passwordWrongError, setpasswordWrongError] = useState({state:false,msg:''})
     
+    const {user_id} = useParams();
+
+    const [userEmail, setuserEmail] = useState(`participant.${user_id}@gmail.com`);
+
     // whenever user click on create account, this function is triggered
     const toggleSignup = (e)=>{
         // prevent page from freshing
@@ -26,30 +40,60 @@ const Signin = () =>{
         //setShowSignup(true)
     };
 
-    const firebaseSignin =(e) => {
-      e.preventDefault();
-      setloadingTime(true);
-      console.log("Firebase signin")
-      console.log(showSignup, userEmail, userPassword)
-
-      auth.signInWithEmailAndPassword(userEmail, userPassword)
+    const autoSignUp = () => {
+      console.log(`Auto Signup With Account ${userEmail}:${userPassword}`)
+    
+      auth
+      .createUserWithEmailAndPassword(userEmail, userPassword)
       .then(() => {
-        console.log("Loggin")        
+        auth.currentUser
+          .updateProfile({
+            displayName: `Participant ${user_id}`,
+          })
+          .then(() => {
+            console.log(`Auto Signup Success`)
+            firebaseSignin(null);
+          });
       })
-      .catch((err) => {
-        setloadingTime(false);
-        console.log(err.message)
-        console.log(err.code)
-        if (err.code === "auto/wrong-password"){
-          setpasswordWrongError({state:true, msg:"Wrong Password"})
+      .catch((error) => {
+        if (error.code === "auth/email-already-in-use") {
+          console.log(`Auto Signup Fail, User Exist`)
+          firebaseSignin(null);
         }
-        if (err.code === "auth/invalid-value-(email),-starting-an-object-on-a-scalar-field"){
-          setemailFormatError({state:true, msg:"Invalid Email"})
+        else{
+          <ErrorSignUp errorMessage={error.code}>
+          </ErrorSignUp>
         }
       });
     }
     
+    const firebaseSignin =(e) => {
+      if (e !== null){
+        e.preventDefault();
+      }
+      
+      setloadingTime(true);
+      console.log(`Auto Signin With Account ${userEmail}:${userPassword}`)
+      // console.log("Firebase signin")
+      // console.log(showSignup, userEmail, userPassword)
+    
+      auth.signInWithEmailAndPassword(userEmail, userPassword)
+      .then(() => {
+        // console.log("Loggin")     
+        console.log(`Auto Signin Success`)   
+      })
+      .catch((error) => {
+        setloadingTime(false);
+        <ErrorSignIn errorMessage={error.code}>
+        </ErrorSignIn>
+      });
+    }
 
+    useEffect(() => {
+      autoSignUp();
+      return;
+    }, [])
+    
     // If else statement based on state: {setShowSignup ? () : () }
     return (
         <div className="login">
