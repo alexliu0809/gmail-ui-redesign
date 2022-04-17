@@ -79,3 +79,22 @@ export const ErrorSignIn = ({errorMessage=null, helpMessage=null}) => {
         </div>
     )
 }
+
+export const ErrorNoID = ({errorMessage=null, helpMessage=null}) => {
+
+    return (
+        <div className='error_home'>
+            <h1>
+                Error:
+                <span style={{"color": 'red'}}>
+                     &nbsp; User ID doesn't exist.
+                </span>
+            </h1>
+            <br />
+            <br />
+            <h2>
+                Please contact Alex Liu at e7liu@eng.ucsd.edu
+            </h2>
+        </div>
+    )
+}

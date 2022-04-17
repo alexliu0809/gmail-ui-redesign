@@ -8,6 +8,8 @@ export function useLocalContext(){
     return useContext(UserContext)
 };
 
+// Todos: Add firebase tracking to via; more emails; format time; polish
+
 // accepts an arg: children
 export function ContextProvider({ children }){
     /**  Only turn off for debug **/

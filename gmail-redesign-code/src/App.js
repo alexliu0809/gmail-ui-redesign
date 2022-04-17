@@ -6,9 +6,38 @@ import { BrowserRouter as Router, Route, Routes, useParams, Navigate } from "rea
 import { auth } from "./lib/firebase"
 import firebase from "firebase/compat/app"
 
-import { ErrorPageNotFound } from "./components/error/error";
+import { ErrorPageNotFound, ErrorNoID } from "./components/error/error";
 // import { AutoSignIn } from "./components/signin/signin";
 
+const isDesiredUserID = (user_id)=>{
+  if (user_id === "test"){
+    return true;
+  }
+ 
+  const parsed = parseInt(user_id);
+  if (!isNaN(parsed) && (parsed >= 0) && (parsed <= 100)) { 
+    return true; 
+  }
+  return false;
+}
+
+const GenApp = ( {appState} ) => {
+  let user_id = useParams();
+  if (isDesiredUserID(user_id.user_id)){
+    return (
+      <div className="App">
+        {appState === "signin" && <Signin></Signin>}
+        {appState === "loading" && <Loading></Loading>}
+        {appState === "home" && <Home></Home>}
+      </div>
+    )
+  } else {
+    return (
+      <Navigate replace to="/idnotexist" />
+    )
+  } 
+  
+}
 
 
 function App() {
@@ -41,15 +70,16 @@ function App() {
             </ErrorPageNotFound>
         }>
         </Route>
-        
-        <Route path="/id/:user_id" element={
-          <div className="App">
-          {appState === "signin" && <Signin></Signin>}
-          {appState === "loading" && <Loading></Loading>}
-          {appState === "home" && <Home></Home>}
-          </div>
-        }>
 
+        <Route path="/idnotexist" element={
+            <ErrorNoID>
+            </ErrorNoID>
+        }>
+        </Route>
+        
+        <Route path="/id/:user_id" 
+          element={<GenApp appState={appState} />}
+        >
         </Route>
 
         <Route path="/*" element={<Navigate replace to="/notfound" />} />
