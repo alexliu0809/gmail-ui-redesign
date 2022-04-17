@@ -7,19 +7,16 @@ import { auth } from "./lib/firebase"
 import firebase from "firebase/compat/app"
 
 import { ErrorPageNotFound } from "./components/error/error";
+// import { AutoSignIn } from "./components/signin/signin";
 
 
 
 function App() {
   // You have to get a specific var, otherwise it returns null
-  const { appState, setAppState } = useLocalContext();
+  const { appState, setAppState, autoLogin } = useLocalContext();
   const { allMailStates } = useMailContext();
 
   const {user_id} = useParams();
-
-  const autoLogin = true;
-
-  //console.log(appState);
   
   useEffect(() => {
     if (appState === 'loading'){
@@ -28,22 +25,6 @@ function App() {
       }, 2000)
     }
   })
-
-  // Auto Login
-  // if (autoLogin === true && firebase.auth().currentUser !== "hsyalexliu0809@gmail.com"){
-  //   auth.signInWithEmailAndPassword("hsyalexliu0809@gmail.com", "abcd1234").then(() => {
-  //     console.log("Loggin")        
-  //   })
-  //   .catch((err) => {
-  //     console.log(err.message)
-  //     console.log(err.code)
-  //   });      
-  // }
-  
-
-  // allMailStates.map((mailState, index) => {
-  //   console.log("full_id", `/${mailState.state.full_id}`)
-  // })
 
   return (
     <Router>
@@ -56,17 +37,15 @@ function App() {
         })}
 
         <Route path="/notfound" element={
-          <div className="App">
             <ErrorPageNotFound>
             </ErrorPageNotFound>
-          </div>
         }>
         </Route>
-
+        
         <Route path="/id/:user_id" element={
           <div className="App">
-          {appState === "login" &&<Signin></Signin>}
-          {appState === "loading" &&<Loading></Loading>}
+          {appState === "signin" && <Signin></Signin>}
+          {appState === "loading" && <Loading></Loading>}
           {appState === "home" && <Home></Home>}
           </div>
         }>

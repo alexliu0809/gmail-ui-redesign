@@ -10,30 +10,19 @@ export function useLocalContext(){
 
 // accepts an arg: children
 export function ContextProvider({ children }){
+    /**  Only turn off for debug **/
+    let autoLogin = false;
+    
+    const [appState, setAppState] = useState("signin");
     const [currentUser, setCurrentUser] = useState('');
-    const [appState, setAppState] = useState("login");
+
+    
     const [drawerOpen, setdrawerOpen] = useState(true);
     const [activeSideBarTab, setactiveSideBarTab] = useState("Inbox");
     const [composeOpen, setcomposeOpen] = useState(false);
     const [activeMainTab, setactiveMainTab] = useState("Primary")
     const [ showVia, setshowVia ] = useState(false);
     const [ viaAnchor, setviaAnchor ] = useState(null);
-    
-    useEffect(() => {
-        // some logic is executed whenever val in [] is changed
-        // if [] empty, runs once
-        
-        auth.onAuthStateChanged((user) => {
-            if (user){
-                setAppState("loading")
-                setCurrentUser(user)
-            } else{
-                setCurrentUser(null)
-                setAppState("login")
-            }
-            //console.log("currentUser",currentUser)
-        })
-    },[]);
 
     const value = {
         currentUser,
@@ -51,11 +40,12 @@ export function ContextProvider({ children }){
         setshowVia,
         viaAnchor, 
         setviaAnchor,
+        autoLogin
     };
 
     return(
         <UserContext.Provider value={value}>
-                {children}
+            {children}
         </UserContext.Provider>
     )
 }

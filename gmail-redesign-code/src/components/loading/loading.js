@@ -2,6 +2,7 @@ import React from "react";
 import "./styles.css"
 
 const Loading = () => {
+
     return (
         <div id="loading">
         <div class="div2">
