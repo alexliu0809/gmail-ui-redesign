@@ -11,7 +11,7 @@ import './styles.css'
 // Todo: format the content with div: detail__popoverContainer
 
 const Detail = ({show=false, setShow, anchorEl, setanchorEl, mailState}) => {
-    const { setshowVia, showVia, setviaAnchor, viaAnchor } = useLocalContext();
+    const { setshowVia, showVia, setviaAnchor, viaAnchor, currentUser } = useLocalContext();
 
     const handleClose = () => {
         setanchorEl(null);
@@ -105,7 +105,8 @@ const Detail = ({show=false, setShow, anchorEl, setanchorEl, mailState}) => {
                                         <td colSpan="2" tabIndex="0" class="detail__table__tr__tdcontent">
                                             <span class="detail__outter__most__span">
                                                 <span>
-                                                    {mailState.state.to}
+                                                    { /* mailState.state.to */}
+                                                    {currentUser.email}
                                                 </span>
                                             </span>
                                         </td>

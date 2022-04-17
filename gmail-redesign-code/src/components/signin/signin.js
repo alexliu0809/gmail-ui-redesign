@@ -26,7 +26,7 @@ const Signin = () =>{
     const [showSignup, setShowSignup] = useState(false);
     const [loadingTime, setloadingTime] = useState(false);
 
-    const { autoLogin, setAppState, appState } = useLocalContext();
+    const { autoLogin, setAppState, appState, setCurrentUser, currentUser } = useLocalContext();
 
     const [emailFormatError, setemailFormatError] = useState('')
     const [passwordWrongError, setpasswordWrongError] = useState({state:false,msg:''})
@@ -41,6 +41,18 @@ const Signin = () =>{
         SignUpAndSignIn(userEmail, userPassword, user_id, appState, setAppState, null)
       }
     }, [])
+
+    useEffect(() => {
+      // some logic is executed whenever val in [] is changed
+      // if [] empty, runs once
+      auth.onAuthStateChanged((user) => {
+          if (user){
+              setCurrentUser(user)
+          } else{
+              setCurrentUser(null)
+          }
+      })
+    },[]);
 
     // whenever user click on create account, this function is triggered
     const toggleSignup = (e)=>{

@@ -26,8 +26,11 @@ export function ContextProvider({ children }){
     const [ showVia, setshowVia ] = useState(false);
     const [ viaAnchor, setviaAnchor ] = useState(null);
 
+    
+
     const value = {
         currentUser,
+        setCurrentUser,
         appState,
         setAppState,
         drawerOpen, 

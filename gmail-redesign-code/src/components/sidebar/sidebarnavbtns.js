@@ -154,10 +154,9 @@ export function HangoutBtn(){
                 variant="dot"
                 >
                     <Avatar className="sidebar_avatarSmaller">
-
                     </Avatar>
                 </Badge>
-                <p>{currentUser.email}</p>
+                <p>{currentUser.displayName}</p>
 
             </div>
 

@@ -31,13 +31,16 @@ const Header = () => {
     var open = Boolean(anchorEl);
     const id = open ? "simple-popover" : undefined;
 
-    const {currentUser, setdrawerOpen, drawerOpen} = useLocalContext();
+    const {currentUser, setCurrentUser, setdrawerOpen, drawerOpen, setAppState} = useLocalContext();
 
     const navigate = useNavigate();
     const {user_id} = useParams();
     
     const signout = () => {
         auth.signOut();
+        setCurrentUser(null);
+        setAppState('signin')
+        navigate(`/id/${user_id}/`)
     }
     
     const handleAvatarClick = (event) => {
@@ -109,7 +112,7 @@ const Header = () => {
 
                                 <div className='home__text'>
                                     <div className="home__displayName">
-                                        Alex Liu
+                                        {currentUser.displayName}
                                     </div>
                                     <div className="home__mail">
                                         {currentUser.email}

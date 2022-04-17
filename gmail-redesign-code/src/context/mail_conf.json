@@ -1,7 +1,5 @@
 [
   {
-    "participant_id": 0,
-    "participant_email": "hsyalexliu0809@gmail.com",
     "from": "adminrec@ucsd.edu",
     "from_name": "Chancellor Khosla",
     "mailfrom": "host@e2ma.net",
@@ -14,8 +12,6 @@
     "id": 0
   },  
   {
-    "participant_id": 0,
-    "participant_email": "hsyalexliu0809@gmail.com",
     "from": "test@ucsd.edu",
     "from_name": "Test Name",
     "mailfrom": "test@ucsd.edu",
@@ -28,8 +24,6 @@
     "id": 1
   },
   {
-    "participant_id": 0,
-    "participant_email": "hsyalexliu0809@gmail.com",
     "from": "user@ucsd.edu",
     "from_name": "Test Name 2",
     "mailfrom": "user@ucsd.edu",

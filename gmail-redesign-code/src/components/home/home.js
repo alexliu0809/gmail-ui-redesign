@@ -14,7 +14,6 @@ const Home = ({showMails=true, mailState}) => {
             <Sidebar>
                 {showMails ? (
                     <Main>
-
                     </Main>
                 ) : (<ViewMail mailState={mailState}></ViewMail>)
                 }

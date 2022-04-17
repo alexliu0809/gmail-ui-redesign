@@ -37,8 +37,6 @@ export function MailContextProvider({children}){
         // console.log("Mails",mails_data);
         for (let i = 0; i < mails_data.length; i++) {
           const instance = new MailState({
-            participant_id:mails_data[i].participant_id,
-            participant_email:mails_data[i].participant_email,
             from:mails_data[i].from,
             from_name:mails_data[i].from_name,
             mailfrom: mails_data[i].mailfrom,

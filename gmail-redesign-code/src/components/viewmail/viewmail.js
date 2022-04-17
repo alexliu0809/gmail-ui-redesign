@@ -77,7 +77,8 @@ const ViewMail = ({ mailState }) => {
               />
             </div>
             <p className="viewMail__info">to {
-              mailState.state.participant_email === mailState.state.to ? ("me") : (`${mailState.state.to}`)
+              /* mailState.state.participant_email === mailState.state.to ? ("me") : (`${mailState.state.to}`) */
+              "me"
             }
               <Tooltip 
               title="Show details"
