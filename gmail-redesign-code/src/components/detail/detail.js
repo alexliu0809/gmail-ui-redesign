@@ -3,7 +3,7 @@ import { useLocalContext } from '../../context/context'
 import { Header, Sidebar, Compose, Main, ViewMail} from "..";
 import { Popover, makeStyles } from '@material-ui/core'
 
-import { getDomainFromEmail } from "../util/utils";
+import { getDomainFromEmail, ComputeHumanReadableDateFullFromEpoch } from "../util/utils";
 
 import './styles.css'
 
@@ -118,7 +118,7 @@ const Detail = ({show=false, setShow, anchorEl, setanchorEl, mailState}) => {
                                         </td>
                                         <td colSpan="2" tabIndex="0" class="detail__table__tr__tdcontent">
                                             <span class="detail__outter__most__span">
-                                                {mailState.state.date}
+                                                {ComputeHumanReadableDateFullFromEpoch(mailState.state.date)}
                                             </span>
                                         </td>
                                     </tr>

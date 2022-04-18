@@ -8,6 +8,8 @@ import ReactDOM from 'react-dom';
 import { MailState } from "../components";
 import React from 'react'
 
+import { ConvertStringToEpochTime } from "../components/util/utils";
+
 
 const MailContext = createContext()
 
@@ -45,10 +47,9 @@ export function MailContextProvider({children}){
             subject:mails_data[i].subject,
             read:mails_data[i].read,
             category: mails_data[i].category,
-            date: mails_data[i].date,
+            date: ConvertStringToEpochTime(mails_data[i].date),
             id: mails_data[i].id,
         });
-
           // console.log("instance",instance,instance.state.from,instance.state.from_name);
           mailStateArray.push(instance)
         }

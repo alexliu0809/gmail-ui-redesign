@@ -3,6 +3,7 @@ import { Label, LabelOutlined, Star, StarBorder } from "@material-ui/icons";
 import React, { useState, useRef, useHistory } from "react";
 import { useLocalContect, useLocalContext } from "../../context/context";
 import { useMailContext } from '../../context/mailcontext'
+import { ComputeHumanReadableDateShortFromEpoch } from "../util/utils";
 import { db } from "../../lib/firebase";
 import "./styles.css";
 
@@ -122,7 +123,7 @@ const Mail = ({ mailState }) => {
             <p className="mail__text mail__body">&nbsp;-&nbsp;{mailState.state.body}</p>
           </div>
           <div className="mail__date__container">
-            <p className="mail__text">{mailState.state.date}</p>
+            <p className="mail__text">{ComputeHumanReadableDateShortFromEpoch(mailState.state.date)}</p>
           </div>
       </div>
 

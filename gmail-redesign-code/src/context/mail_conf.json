@@ -8,7 +8,7 @@
     "subject": "Subject Via E2MA",
     "read": false,
     "category": "Primary",
-    "date": "8:45 AM",
+    "date": "04/18/2022, 08:01:23",
     "id": 0
   },  
   {
@@ -20,7 +20,7 @@
     "subject": "Subject 1",
     "read": true,
     "category": "Primary",
-    "date": "7:45 AM",
+    "date": "04/15/2022, 16:24:03",
     "id": 1
   },
   {
@@ -32,21 +32,19 @@
     "subject": "Subject 2",
     "read": true,
     "category": "Primary",
-    "date": "Apr 1",
+    "date": "04/14/2022, 15:45:26",
     "id": 2
   },
   {
-    "participant_id": 0,
-    "participant_email": "hsyalexliu0809@gmail.com",
     "from": "user@ucsd.edu",
     "from_name": "Test Promo 1",
     "mailfrom": "user@ucsd.edu",
     "to": "hsyalexliu0809@gmail.com",
-    "body": "Hi, this is a test email for Promo",
-    "subject": "Subject Promo",
+    "body": "Plan your shopping trip with this week's deals.",
+    "subject": "New Weekly Ads: Find Last-Minute Easter Savings!",
     "read": true,
     "category": "Promotions",
-    "date": "Mar 31",
+    "date": "04/17/2022, 07:15:34",
     "id": 3
   }
 ]
