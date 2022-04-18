@@ -1,15 +1,27 @@
 [
   {
+    "from": "notification@cit.com",
+    "from_name": "CIT Bank",
+    "mailfrom": "host@e2ma.net",
+    "to": "hsyalexliu0809@gmail.com",
+    "body": "Your CIT bank account information.",
+    "subject": "Your CIT Bank Info",
+    "read": false,
+    "category": "Primary",
+    "date": "04/18/2022, 08:01:23",
+    "id": 0
+  },  
+  {
     "from": "adminrec@ucsd.edu",
     "from_name": "Chancellor Khosla",
     "mailfrom": "host@e2ma.net",
     "to": "hsyalexliu0809@gmail.com",
     "body": "UC San Diego has been shaped by exceptional scholars who challenge expectations to make our world better, including pioneers of climate change research like Roger Revelle and geochemist Charles David Keeling of the Keeling Curve",
     "subject": "Subject Via E2MA",
-    "read": false,
+    "read": true,
     "category": "Primary",
     "date": "04/18/2022, 08:01:23",
-    "id": 0
+    "id": 1
   },  
   {
     "from": "test@ucsd.edu",
@@ -21,7 +33,7 @@
     "read": true,
     "category": "Primary",
     "date": "04/15/2022, 16:24:03",
-    "id": 1
+    "id": 2
   },
   {
     "from": "user@ucsd.edu",
@@ -33,7 +45,7 @@
     "read": true,
     "category": "Primary",
     "date": "04/14/2022, 15:45:26",
-    "id": 2
+    "id": 3
   },
   {
     "from": "user@ucsd.edu",
@@ -45,6 +57,6 @@
     "read": true,
     "category": "Promotions",
     "date": "04/17/2022, 07:15:34",
-    "id": 3
+    "id": 4
   }
 ]

@@ -8,7 +8,6 @@ import { getDomainFromEmail, ComputeHumanReadableDateFullFromEpoch } from "../ut
 import './styles.css'
 
 // PaperProps: Size of the container
-// Todo: format the content with div: detail__popoverContainer
 
 const Detail = ({show=false, setShow, anchorEl, setanchorEl, mailState}) => {
     const { setshowVia, showVia, setviaAnchor, viaAnchor, currentUser } = useLocalContext();

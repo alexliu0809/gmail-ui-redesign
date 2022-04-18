@@ -2,7 +2,8 @@
 import { Avatar } from "@material-ui/core";
 import { Badge } from "@material-ui/core";
 import { VideocamOff } from "@material-ui/icons";
-import { Inbox, Send, Mail, Report,Videocam } from "@material-ui/icons";import React, { useState } from "react";
+import { Inbox, Send, Mail, Report, Videocam, Keyboard } from "@material-ui/icons";
+import React, { useState } from "react";
 import { useLocalContext } from '../../context/context'
 import { useMailContext } from '../../context/mailcontext'
 
@@ -118,14 +119,14 @@ export function MeetBtn(){
                 <div className={`sidebar__btnLeft ${!drawerOpen && "sidebar__btnLeftClose"}`}>
                     {drawerOpen ? (
                         <>
-                        <Videocam className="sidebar__icon">
-                        </Videocam>
+                        <Keyboard className="sidebar__icon">
+                        </Keyboard>
                         <p>Join a meeting</p>
                         </>
                     ) : (
-                        <Videocam className="sidebar__icon">
+                        <Keyboard className="sidebar__icon">
 
-                        </Videocam>
+                        </Keyboard>
                     )}
                 </div>
             </div>
