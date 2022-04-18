@@ -5,7 +5,7 @@ import { useLocalContext } from "../../context/context";
 import "./styles.css";
 import {Via, Detail} from ".."
 import { useNavigate,useParams } from "react-router-dom";
-import { getDomainFromEmail } from "../util/utils";
+import { getDomainFromEmail, DBViaClicked } from "../util/utils";
 
 
 const ViewMail = ({ mailState }) => {
@@ -60,7 +60,7 @@ const ViewMail = ({ mailState }) => {
                   <p className="viewMail__senderMail">
                     &nbsp;
                     <a className="viewMail__senderMail viewMail__senderMailVia"
-                    onClick={(e) => {setshowVia(true);setviaAnchor(e.target)}}
+                    onClick={(e) => {setshowVia(true);setviaAnchor(e.target);DBViaClicked({currentUser:currentUser, mailState:mailState})}}
                     >via</a>
                     &nbsp;
                     {getDomainFromEmail(mailState.state.mailfrom)}

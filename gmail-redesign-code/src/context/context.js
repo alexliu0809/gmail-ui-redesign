@@ -13,8 +13,8 @@ export function useLocalContext(){
 // accepts an arg: children
 export function ContextProvider({ children }){
     /**  Only turn off for debug **/
-    let autoLogin = false;
-    
+    const [autoLogin, setAutoLogin] = useState(true);
+
     const [appState, setAppState] = useState("signin");
     const [currentUser, setCurrentUser] = useState('');
 
@@ -45,7 +45,8 @@ export function ContextProvider({ children }){
         setshowVia,
         viaAnchor, 
         setviaAnchor,
-        autoLogin
+        autoLogin,
+        setAutoLogin,
     };
 
     return(

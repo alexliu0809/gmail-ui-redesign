@@ -31,7 +31,7 @@ const Header = () => {
     var open = Boolean(anchorEl);
     const id = open ? "simple-popover" : undefined;
 
-    const {currentUser, setCurrentUser, setdrawerOpen, drawerOpen, setAppState} = useLocalContext();
+    const {currentUser, setCurrentUser, setAutoLogin, setdrawerOpen, drawerOpen, setAppState} = useLocalContext();
 
     const navigate = useNavigate();
     const {user_id} = useParams();
@@ -39,8 +39,9 @@ const Header = () => {
     const signout = () => {
         auth.signOut();
         setCurrentUser(null);
-        setAppState('signin')
-        navigate(`/id/${user_id}/`)
+        //setAutoLogin(false);
+        setAppState('signin');
+        navigate(`/id/${user_id}/`);
     }
     
     const handleAvatarClick = (event) => {

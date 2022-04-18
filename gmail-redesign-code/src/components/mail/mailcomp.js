@@ -29,7 +29,7 @@ class MailState extends React.Component {
             id:props.id,
             starred: false,
             important: false,
-            full_id: `mail-${props.participant_id}-${props.id}`
+            full_id: `mail-${props.id}`
         }
     }
 }
