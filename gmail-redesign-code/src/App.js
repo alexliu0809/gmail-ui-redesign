@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Routes, useParams, Navigate } from "rea
 import { auth } from "./lib/firebase"
 import firebase from "firebase/compat/app"
 
-import { ErrorPageNotFound, ErrorNoID } from "./components/error/error";
+import { ErrorPageNotFound, ErrorNoID, ErrorScreenTooSmaller } from "./components/error/error";
 // import { AutoSignIn } from "./components/signin/signin";
 
 const isDesiredUserID = (user_id)=>{
@@ -39,6 +39,16 @@ const GenApp = ( {appState} ) => {
   
 }
 
+const isSmall = () => {
+  let isWidthTooSmall = window.innerWidth<=1000;
+  let isHeighTooSmall = window.innerHeight<=550;
+  console.log(window.innerWidth, window.innerHeight)
+  if (isWidthTooSmall || isHeighTooSmall){
+    return true;
+  }
+}
+
+
 
 function App() {
   // You have to get a specific var, otherwise it returns null
@@ -54,6 +64,10 @@ function App() {
       }, 2000)
     }
   })
+
+  if (isSmall() === true){
+    return <ErrorScreenTooSmaller />
+  }
 
   return (
     <Router>
