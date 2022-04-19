@@ -3,13 +3,14 @@ import "firebase/compat/auth"
 import "firebase/compat/firestore"
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBwfvbCqIggFvTX7NbMGrfE_ne793ETc6k",
-    authDomain: "clone-e0ec2.firebaseapp.com",
-    projectId: "clone-e0ec2",
-    storageBucket: "clone-e0ec2.appspot.com",
-    messagingSenderId: "263700219438",
-    appId: "1:263700219438:web:fe92b6e222f2c6542a01bf"
-  };
+  apiKey: "AIzaSyCpi-r7vR3H7Vz2Mq2VU5V2hlkAak0tkkk",
+  authDomain: "mail-ui-research.firebaseapp.com",
+  projectId: "mail-ui-research",
+  storageBucket: "mail-ui-research.appspot.com",
+  messagingSenderId: "243402115256",
+  appId: "1:243402115256:web:92d09789bafe4e95a8cc4d",
+  measurementId: "G-Z77L33PYL8"
+};
 
 firebase.initializeApp(firebaseConfig);
 
