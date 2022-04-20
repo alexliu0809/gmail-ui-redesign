@@ -81,14 +81,14 @@ const Detail = ({show=false, setShow, anchorEl, setanchorEl, mailState}) => {
                                                     { getDomainFromEmail(mailState.state.from) === getDomainFromEmail(mailState.state.mailfrom)
                                                         ? (<></>) : (
                                                         <span class="detail__span__from__email">
-                                                            <p className="viewMail__senderMail">
+                                                            <span className="viewMail__senderMail">
                                                                 &nbsp;
                                                             <a className="viewMail__senderMail viewMail__senderMailVia"
                                                             onClick={(e) => {setshowVia(true);setviaAnchor(e.target)}}
                                                             >via</a>
                                                                 &nbsp;
                                                                 {getDomainFromEmail(mailState.state.mailfrom)}
-                                                            </p>
+                                                            </span>
                                                         </span> 
                                                         )
                                                     }

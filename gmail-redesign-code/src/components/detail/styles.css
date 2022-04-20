@@ -9,7 +9,7 @@
     box-sizing: border-box;
     cursor: auto;
     max-height: 360px;
-    min-width: 360px;
+    min-width: 460px;
     overflow: auto;
     position: absolute;
     z-index: 10;

@@ -55,7 +55,7 @@
     display: flex;
     width: 50vw;
     justify-content: left;
-    /**    flex: 1 1 auto; **/
+    /* flex: 1 1 auto; */
  
   }
   .mail__date__container{
