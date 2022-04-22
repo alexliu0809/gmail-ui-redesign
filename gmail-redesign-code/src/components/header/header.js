@@ -12,6 +12,7 @@ import { Button } from '@material-ui/core'
 import { auth } from "../../lib/firebase"
 import { useLocalContext } from '../../context/context'
 import { useNavigate,useParams } from "react-router-dom";
+import { DBClicked } from "../util/utils";
 
 // JS Styling
 const useStyles = makeStyles((theme) => ({
@@ -37,6 +38,8 @@ const Header = () => {
     const {user_id} = useParams();
     
     const signout = () => {
+        DBClicked({currentUser:currentUser, buttonName:"signOut"});
+
         auth.signOut();
         setCurrentUser(null);
         //setAutoLogin(false);
@@ -58,11 +61,11 @@ const Header = () => {
             <div className='home__left'>
                 <Menu
                 className="home__menuIcon"
-                onClick={() => setdrawerOpen(!drawerOpen)}
+                onClick={() => {setdrawerOpen(!drawerOpen); DBClicked({currentUser:currentUser, buttonName:"homeDrawer"});}}
                 />
                 <img className="home__logo" 
                 src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_dark_1x_r2.png" alt="Gmail" 
-                onClick={() => navigate(`/id/${user_id}/`)}
+                onClick={() => {navigate(`/id/${user_id}/`); ; DBClicked({currentUser:currentUser, buttonName:"homeLogo"});}}
                 />
             </div>
 

@@ -3,7 +3,7 @@ import { useLocalContext } from '../../context/context'
 import { Header, Sidebar, Compose, Main, ViewMail} from "..";
 import { Popover, makeStyles } from '@material-ui/core'
 
-import { getDomainFromEmail, ComputeHumanReadableDateFullFromEpoch } from "../util/utils";
+import { getDomainFromEmail, ComputeHumanReadableDateFullFromEpoch, DBClicked } from "../util/utils";
 
 import './styles.css'
 
@@ -84,7 +84,7 @@ const Detail = ({show=false, setShow, anchorEl, setanchorEl, mailState}) => {
                                                             <span className="viewMail__senderMail">
                                                                 &nbsp;
                                                             <a className="viewMail__senderMail viewMail__senderMailVia"
-                                                            onClick={(e) => {setshowVia(true);setviaAnchor(e.target)}}
+                                                            onClick={(e) => {setshowVia(true);setviaAnchor(e.target);DBClicked({buttonName:"detailVia",currentUser:currentUser,mailState:mailState})}}
                                                             >via</a>
                                                                 &nbsp;
                                                                 {getDomainFromEmail(mailState.state.mailfrom)}

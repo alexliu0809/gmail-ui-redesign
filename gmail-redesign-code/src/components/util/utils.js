@@ -7,19 +7,22 @@ export const getDomainFromEmail = (email) => {
 }
 
 
-export const DBViaClicked = ( {currentUser, mailState} ) => {
-    console.log(DBViaClicked, mailState.state)
-    db.collection("viaClicks")
-      .doc(currentUser.email)
-      .collection("mails")
-      .doc(mailState.state.id.toString())
-      .set({
-        "id": mailState.state.id,
-        "timestamp": Date.now(),
-        "clicked": true,
-      })
-      .catch((err) => console.log("dbViaClicked Error", err));
-  };
+export const DBClicked = ( {buttonName, currentUser, mailState = null} ) => {
+  let ts = Date.now().toString()
+  db.collection("Type:Clicks")
+  .doc(currentUser.email)
+  .collection(ts.toString())
+  .doc("data")
+  .set({
+    "button":buttonName,
+    "ts": ts.toString(),
+    "ts_readable": ConvertEpochTimeToDate(ts),
+    "clicked": true,
+    "mail_id": mailState === null ? ("null") : (mailState.state.id)
+  })
+  .catch((err) => console.log("DB Clicked Error", err));  
+}
+    
 
 
 export const ConvertEpochTimeToDate = (epochTime) =>{

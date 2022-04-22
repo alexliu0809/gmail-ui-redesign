@@ -3,9 +3,10 @@ import "./styles.css"
 import { useLocalContext } from '../../context/context'
 import { Button } from "@material-ui/core";
 import { Close } from "@material-ui/icons";
+import { DBClicked } from "../util/utils";
 
 const Compose = () => {
-    const {composeOpen, setcomposeOpen} = useLocalContext();
+    const {composeOpen, setcomposeOpen, currentUser} = useLocalContext();
     return (
         <div className='compose'>
             <div className='compose__container'>
@@ -13,7 +14,7 @@ const Compose = () => {
                     <h4>
                         New Message
                     </h4>
-                    <Close onClick={()=>{setcomposeOpen(false)}}>
+                    <Close onClick={()=>{setcomposeOpen(false);DBClicked({currentUser:currentUser,buttonName:"composeClose"});}}>
                     </Close>
                 </div>
 

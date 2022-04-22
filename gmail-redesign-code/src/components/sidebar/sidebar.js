@@ -5,6 +5,7 @@ import { useLocalContext } from '../../context/context'
 import { FormatColorTextSharp } from '@material-ui/icons';
 import { Avatar, Badge, Drawer, makeStyles } from "@material-ui/core";
 import SidebarNavBtn, {MeetBtn, HangoutBtn}  from './sidebarnavbtns';
+import { DBClicked } from "../util/utils";
 
 const drawerWidth = 256;
 
@@ -62,7 +63,7 @@ const Sidebar = ( { children }) => {
                     className={`sidebar__compose ${
                     !drawerOpen && "sidebar__composeClose"
                     }`}
-                    onClick={() => setcomposeOpen(!composeOpen)}
+                    onClick={() => {setcomposeOpen(!composeOpen);DBClicked({buttonName:"sidebarCompose",currentUser:currentUser});}}
                 >
                 <img
                 className="sidebar__addIMG"

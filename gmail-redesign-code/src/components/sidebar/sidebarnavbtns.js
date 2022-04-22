@@ -8,6 +8,7 @@ import { useLocalContext } from '../../context/context'
 import { useMailContext } from '../../context/mailcontext'
 
 import { useNavigate, useParams } from "react-router-dom";
+import { DBClicked } from "../util/utils";
 
 
 // <SideButton name="Starred" />
@@ -36,14 +37,14 @@ const SideButton = (props) => {
     const navigate = useNavigate();
     const {user_id} = useParams();
 
-    const {drawerOpen, setactiveSideBarTab, activeSideBarTab} = useLocalContext();
+    const {drawerOpen, setactiveSideBarTab, activeSideBarTab, currentUser} = useLocalContext();
     const {primaryUnreadNumber, socialUnreadNumber, promoUnreadNumber} = useMailContext();
 
     return (
         <div className={`sidebar__btn sidebar__topBtn ${
             !drawerOpen && "sidebar__btnClose"
               } ${activeSideBarTab === props.name && "sidebar__active"}`}
-              onClick={() => {setactiveSideBarTab(props.name);navigate(`/id/${user_id}/`)}}
+              onClick={() => {setactiveSideBarTab(props.name);navigate(`/id/${user_id}/`);DBClicked({buttonName:"sideBar"+props.name,currentUser:currentUser})}}
               >
             <div
             className={`sidebar__btnLeft ${

@@ -5,7 +5,7 @@ import { useLocalContext } from "../../context/context";
 import "./styles.css";
 import {Via, Detail} from ".."
 import { useNavigate,useParams } from "react-router-dom";
-import { getDomainFromEmail, DBViaClicked } from "../util/utils";
+import { getDomainFromEmail, DBClicked } from "../util/utils";
 
 
 const ViewMail = ({ mailState }) => {
@@ -38,7 +38,7 @@ const ViewMail = ({ mailState }) => {
   return (
     <div className={`main ${!drawerOpen && "main--fullWidth"}`}>
       <div className="main__controlBtns">
-        <ArrowBack onClick={() => {navigate(`/id/${user_id}/`)}}/>
+        <ArrowBack onClick={() => {navigate(`/id/${user_id}/`);DBClicked({buttonName:"arrowBack",currentUser:currentUser});}}/>
         <> </>
         <Checkbox color="secondary" className="main__check" />
         <Refresh />
@@ -60,7 +60,7 @@ const ViewMail = ({ mailState }) => {
                   <p className="viewMail__senderMail">
                     &nbsp;
                     <a className="viewMail__senderMail viewMail__senderMailVia"
-                    onClick={(e) => {setshowVia(true);setviaAnchor(e.target);DBViaClicked({currentUser:currentUser, mailState:mailState})}}
+                    onClick={(e) => {setshowVia(true);setviaAnchor(e.target);DBClicked({buttonName:"viewMailVia",currentUser:currentUser, mailState:mailState})}}
                     >via</a>
                     &nbsp;
                     {getDomainFromEmail(mailState.state.mailfrom)}
@@ -86,7 +86,7 @@ const ViewMail = ({ mailState }) => {
               classes={{tooltip: classes.tooltip}}
               >
                 <ArrowDropDown className={classes.myArrowDropDown}
-                onClick={(e) => {setshowDetails(true); setshowDetailsAnchor(e.currentTarget)}}
+                onClick={(e) => {setshowDetails(true); setshowDetailsAnchor(e.currentTarget); DBClicked({buttonName:"showDetails",currentUser:currentUser})}}
                 />
               </Tooltip>
               <Detail 

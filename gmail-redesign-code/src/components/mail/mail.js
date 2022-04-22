@@ -3,7 +3,7 @@ import { Label, LabelOutlined, Star, StarBorder } from "@material-ui/icons";
 import React, { useState, useRef, useHistory } from "react";
 import { useLocalContect, useLocalContext } from "../../context/context";
 import { useMailContext } from '../../context/mailcontext'
-import { ComputeHumanReadableDateShortFromEpoch } from "../util/utils";
+import { ComputeHumanReadableDateShortFromEpoch, DBClicked } from "../util/utils";
 import { db } from "../../lib/firebase";
 import "./styles.css";
 
@@ -39,6 +39,7 @@ const Mail = ({ mailState }) => {
   }, [mailState,refresh]);
 
   const showMailAndUpdateRead =(e) => {
+    DBClicked({currentUser:currentUser,buttonName:"showMail"})
     // Don't know trigger show mail if click on star / important / select
     // console.log(e.target)
     if (e.target.type  === "checkbox" || e.target.nodeName === "svg" || e.target.nodeName === "path"){

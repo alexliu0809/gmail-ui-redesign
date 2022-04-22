@@ -15,13 +15,14 @@ import {
 import React, { useState } from "react";
 import { useLocalContext } from '../../context/context'
 import { useMailContext } from '../../context/mailcontext'
+import { DBClicked } from "../util/utils";
 
 import "./styles.css";
 import { Mail } from "..";
 
 const Main = () => {
     const { drawerOpen, activeSideBarTab, activeMainTab, setactiveMainTab } = useLocalContext();
-    const { mailsOfWindow, primaryUnreadNumber, socialUnreadNumber, promoUnreadNumber } = useMailContext();
+    const { mailsOfWindow, primaryUnreadNumber, socialUnreadNumber, promoUnreadNumber, currentUser } = useMailContext();
     // console.log("mailsOfWindow", mailsOfWindow)
   return (
     <div className={`main ${drawerOpen && "main--fullWidth"}`}>
@@ -37,7 +38,7 @@ const Main = () => {
 
             <div className="main__tabs">
             <div className={`main__tab ${activeMainTab === "Primary" && " main__tabPrimary--active"}`}
-            onClick={() => {setactiveMainTab("Primary")}}
+            onClick={() => {setactiveMainTab("Primary");DBClicked({buttonName:"mainTabPrimary",currentUser:currentUser});}}
             >
                 <Inbox />
                 <p>Primary</p>
@@ -50,7 +51,7 @@ const Main = () => {
             </div>
 
             <div className={`main__tab ${activeMainTab === "Social" && " main__tabSocial--active"}`}
-            onClick={() => {setactiveMainTab("Social")}}
+            onClick={() => {setactiveMainTab("Social");DBClicked({buttonName:"mainTabSocial",currentUser:currentUser});}}
             >
                 <People />
                 <p>Social</p>
@@ -63,7 +64,7 @@ const Main = () => {
             </div>
 
             <div className={`main__tab ${activeMainTab === "Promotions" && " main__tabPromotions--active"}`}
-            onClick={() => {setactiveMainTab("Promotions")}}
+            onClick={() => {setactiveMainTab("Promotions");DBClicked({buttonName:"mainTabPromotions",currentUser:currentUser});}}
             >
                 <LocalOffer />
                 <p>Promotions</p>
