@@ -41,14 +41,14 @@ export function MailContextProvider({children}){
           const instance = new MailState({
             from:mails_data[i].from,
             from_name:mails_data[i].from_name,
-            mailfrom: mails_data[i].mailfrom,
+            mailfrom: mails_data[i].mailfrom? (mails_data[i].mailfrom) : (mails_data[i].from),
             to: mails_data[i].to,
             body: mails_data[i].body,
             subject:mails_data[i].subject,
             read:mails_data[i].read,
             category: mails_data[i].category,
             date: ConvertStringToEpochTime(mails_data[i].date),
-            id: mails_data[i].id,
+            id: i,
         });
           // console.log("instance",instance,instance.state.from,instance.state.from_name);
           mailStateArray.push(instance)

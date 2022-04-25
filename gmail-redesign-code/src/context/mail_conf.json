@@ -1,5 +1,16 @@
 [
   {
+    "from": "alerts@chase.com",
+    "from_name": "Chase Bank",
+    "mailfrom": "alerts@chasesupport.com",
+    "to": "participant@gmail.com",
+    "body": " Dear JPMorgan Chase Customer:\nDue to the emergency situation with our server room and the closing of the New Orleans Branch of the Federal Reserve, JPMorgan Chase is presently unable to process wire transfers. Therefore we are asking that customers please refrain from initiating wire transfer requests through J.P. Morgan until further notice. All wires initiated before 12:30 PM CDT will be processed. However, there may be significant delays in doing so.\nIMPORTANT: All customers must validate their personal information.",
+    "subject": "Urgent Request to Validate Personal Information",
+    "read": false,
+    "category": "Primary",
+    "date": "04/25/2022, 08:01:23"
+  },
+  {
     "from": "notification@cit.com",
     "from_name": "CIT Bank",
     "mailfrom": "host@e2ma.net",
@@ -8,8 +19,7 @@
     "subject": "Your CIT Bank Info",
     "read": false,
     "category": "Primary",
-    "date": "04/18/2022, 08:01:23",
-    "id": 0
+    "date": "04/25/2022, 08:01:23"
   },  
   {
     "from": "john-wilcox@gmail.com",
@@ -19,8 +29,7 @@
     "subject": "Request for documents",
     "read": true,
     "category": "Primary",
-    "date": "Apr 4",
-    "id": 1
+    "date": "04/04/2022, 08:10:00" 	
   },
   {
     "from": "no-reply@claims.com",
@@ -30,8 +39,7 @@
     "subject": "Claim receipt",
     "read": true,
     "category": "Primary",
-    "date": "Apr 3",
-    "id": 2
+    "date": "04/03/2022, 11:06:00"
   },
   {
     "from": "azizailen@gmail.com",
@@ -41,8 +49,7 @@
     "subject": "Picnic this weekend?",
     "read": true,
     "category": "Primary",
-    "date": "Mar 27",
-    "id": 3
+    "date": "03/27/2022, 10:29:00"
   },
   {
     "from": "elenarhyor85@gmail.com",
@@ -52,8 +59,7 @@
     "subject": "Missed call",
     "read": true,
     "category": "Primary",
-    "date": "Mar 27",
-    "id": 4
+    "date": "03/27/2022, 16:02:00"
   },
   {
     "from": "myaccount@spectrumemails.com",
@@ -63,8 +69,7 @@
     "subject": "Payment Received",
     "read": true,
     "category": "Primary",
-    "date": "Mar 24",
-    "id": 5
+    "date": "03/24/2022, 09:53:00"
   },
   {
     "from": "DoNotReply@notifications.cartwright.com",
@@ -74,8 +79,7 @@
     "subject": "Two-factor authentication enabled",
     "read": true,
     "category": "Primary",
-    "date": "Mar 23",
-    "id": 6
+    "date": "03/24/2022, 09:32:00"
   },
   {
     "from": "noreply@lichess.org",
@@ -85,8 +89,7 @@
     "subject": "Account creation - lichess.org",
     "read": true,
     "category": "Primary",
-    "date": "Mar 20",
-    "id": 7
+    "date": "03/24/2022, 09:55:00"
   },
   {
     "from": "azizailen@gmail.com",
@@ -96,8 +99,7 @@
     "subject": "recipe",
     "read": true,
     "category": "Primary",
-    "date": "Mar 20",
-    "id": 8
+    "date": "03/20/2022, 08:56:00"
   },
   {
     "from": "davillalobos274@gmail.com",
@@ -107,8 +109,7 @@
     "subject": "Reschedule meeting?",
     "read": true,
     "category": "Primary",
-    "date": "Mar 19",
-    "id": 9
+    "date": "03/19/2022, 14:12:00"
   },
   {
     "from": "donotreply@healthmychart.org",
@@ -118,7 +119,6 @@
     "subject": "Your Prescription has Refills",
     "read": true,
     "category": "Primary",
-    "date": "Mar 18",
-    "id": 10
+    "date": "03/18/2022, 05:33:00"
   }
 ] 
