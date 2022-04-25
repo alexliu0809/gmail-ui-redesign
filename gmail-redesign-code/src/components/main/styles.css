@@ -8,7 +8,7 @@
   }
   
   .main--fullWidth {
-    width: 90%;
+    width: calc(100% - 256px);
   }
   
   .main__controlBtns {
