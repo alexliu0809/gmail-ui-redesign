@@ -17,7 +17,6 @@ export function useMailContext(){
     return useContext(MailContext);
 }
 
-
 export function MailContextProvider({children}){
     const [receiveMails,setreceiveMails] = useState([])
     const [mailReadRefresh, setmailReadRefresh] = useState([])
@@ -34,23 +33,21 @@ export function MailContextProvider({children}){
     const {currentUser, activeSideBarTab, activeMainTab} = useLocalContext();
 
     const GenMailsFromConfFile = () =>{
-        // console.log("GenMailsFromConfFile")
-        
-        // console.log("Mails",mails_data);
         for (let i = 0; i < mails_data.length; i++) {
           const instance = new MailState({
             from:mails_data[i].from,
             from_name:mails_data[i].from_name,
             mailfrom: mails_data[i].mailfrom? (mails_data[i].mailfrom) : (mails_data[i].from),
+            file:mails_data[i].file? (mails_data[i].file) : (null),
+            __html: mails_data[i].file? (require('../context/' + mails_data[i].file)) : (null),
             to: mails_data[i].to,
             body: mails_data[i].body,
             subject:mails_data[i].subject,
             read:mails_data[i].read,
             category: mails_data[i].category,
             date: ConvertStringToEpochTime(mails_data[i].date),
-            id: i,
-        });
-          // console.log("instance",instance,instance.state.from,instance.state.from_name);
+            id: i,});
+        
           mailStateArray.push(instance)
         }
 

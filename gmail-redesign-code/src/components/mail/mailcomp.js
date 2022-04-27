@@ -20,6 +20,8 @@ class MailState extends React.Component {
             from: props.from,
             from_name: props.from_name,
             mailfrom: props.mailfrom,
+            file: props.file,
+            __html: props.__html,
             to: props.to,
             body: props.body,
             subject:props.subject,

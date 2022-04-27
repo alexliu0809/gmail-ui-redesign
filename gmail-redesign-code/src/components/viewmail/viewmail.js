@@ -8,8 +8,7 @@ import { useNavigate,useParams } from "react-router-dom";
 import { getDomainFromEmail, DBClicked } from "../util/utils";
 import parse from 'html-react-parser'
 
-var __html =require('../../context/chase.html.js');
-var template = { __html: __html };
+
 
 const ViewMail = ({ mailState }) => {
   const { drawerOpen, currentUser, setshowVia, showVia, setviaAnchor, viaAnchor } = useLocalContext();
@@ -109,9 +108,16 @@ const ViewMail = ({ mailState }) => {
 
         <div className="viewMail__bodyBtm">
           <div className="viewMail__bodyText">
-            {/* {parse(mailState.state.body)} */}
-            {/* { <span dangerouslySetInnerHTML={template} /> } */}
-            <div dangerouslySetInnerHTML={template} />
+            {
+              mailState.state.file === null?
+              (
+                mailState.state.body
+              ) : ( 
+                <div dangerouslySetInnerHTML={ {__html: mailState.state.__html}} />
+              )
+
+            }
+            
           </div >
 
           <Button variant="outlined" className="home__signOut">
