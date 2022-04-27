@@ -4,7 +4,7 @@
     "from_name": "Chase Bank",
     "mailfrom": "alerts@chasesupport.com",
     "to": "participant@gmail.com",
-    "body": " Dear JPMorgan Chase Customer:\nDue to the emergency situation with our server room and the closing of the New Orleans Branch of the Federal Reserve, JPMorgan Chase is presently unable to process wire transfers. Therefore we are asking that customers please refrain from initiating wire transfer requests through J.P. Morgan until further notice. All wires initiated before 12:30 PM CDT will be processed. However, there may be significant delays in doing so.\nIMPORTANT: All customers must validate their personal information.",
+    "body": "<h1> Render HTML <span style=\"color:red\">test</span></h1>",
     "subject": "Urgent Request to Validate Personal Information",
     "read": false,
     "category": "Primary",

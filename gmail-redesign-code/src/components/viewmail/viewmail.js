@@ -6,7 +6,7 @@ import "./styles.css";
 import {Via, Detail} from ".."
 import { useNavigate,useParams } from "react-router-dom";
 import { getDomainFromEmail, DBClicked } from "../util/utils";
-
+import parse from 'html-react-parser'
 
 const ViewMail = ({ mailState }) => {
   const { drawerOpen, currentUser, setshowVia, showVia, setviaAnchor, viaAnchor } = useLocalContext();
@@ -105,7 +105,10 @@ const ViewMail = ({ mailState }) => {
         
 
         <div className="viewMail__bodyBtm">
-          <p className="viewMail__bodyText">{mailState.state.body}</p>
+          <div className="viewMail__bodyText">
+            {parse(mailState.state.body)}
+          </div >
+
           <Button variant="outlined" className="home__signOut">
             Reply
           </Button>
