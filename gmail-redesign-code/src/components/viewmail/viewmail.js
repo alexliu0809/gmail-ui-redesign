@@ -120,11 +120,11 @@ const ViewMail = ({ mailState }) => {
             
           </div >
 
-          <Button variant="outlined" className="home__signOut">
+          <Button variant="outlined" className="viewmail__actionBtn">
             Reply
           </Button>
 
-          <Button variant="outlined" className="home__signOut margin-left">
+          <Button variant="outlined" className="viewmail__actionBtn margin-left">
             Forward
           </Button>
         </div>

@@ -234,3 +234,8 @@
 .test{
   background-color: red;
 }
+
+.sidebar{
+  height: calc(100vh - 70px);
+  overflow: hidden;
+}

@@ -2,6 +2,8 @@
     background-color: white;
     padding-bottom: 50px;
     padding-left: 20px;
+    max-height: calc(100vh - 110px);
+    overflow-y: scroll;
   }
   
   .viewMail__heading {
@@ -62,6 +64,11 @@
   .viewMail__bodyBtm {
     margin-left: 50px;
     margin-top: 10px;
+    
+  }
+
+  .viewMail__bodyText{
+
   }
   .margin-left {
     margin-left: 10px !important;
@@ -69,4 +76,11 @@
 
   .viewMail__arrowDropDown{
     font-size: 1.0rem;
+  }
+
+  .viewmail__actionBtn{
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+    color: #5f6368 !important;
+    text-transform: capitalize !important;
   }
