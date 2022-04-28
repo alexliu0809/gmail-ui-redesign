@@ -40,8 +40,8 @@ const GenApp = ( {appState} ) => {
 }
 
 const isSmall = () => {
-  let isWidthTooSmall = window.innerWidth<=1000;
-  let isHeighTooSmall = window.innerHeight<=550;
+  let isWidthTooSmall = window.innerWidth<=1010;
+  let isHeighTooSmall = window.innerHeight<=590;
   console.log(window.innerWidth, window.innerHeight)
   if (isWidthTooSmall || isHeighTooSmall){
     return true;
