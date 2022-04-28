@@ -79,11 +79,6 @@ function App() {
                 </Route>
         })}
 
-        <Route path="/notfound" element={
-            <ErrorPageNotFound>
-            </ErrorPageNotFound>
-        }>
-        </Route>
 
         <Route path="/idnotexist" element={
             <ErrorNoID>
@@ -96,7 +91,13 @@ function App() {
         >
         </Route>
 
-        <Route path="/*" element={<Navigate replace to="/notfound" />} />
+        <Route path="/" exact element={
+            <ErrorPageNotFound>
+            </ErrorPageNotFound>
+        }>
+        </Route>
+
+        <Route path="/*" element={<Navigate replace to="/" />} />
 
       </Routes>
     </Router>
