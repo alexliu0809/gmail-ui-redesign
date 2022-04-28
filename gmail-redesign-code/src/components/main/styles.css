@@ -2,13 +2,13 @@
     /* margin-top: -30px; */
     width: 80%;
     box-shadow: inset -1px 0px 0 rgba(255, 255, 255, 0.2);
-    height: 100%;
+    height: calc(100vh - 276px);
     margin-right: 20px;
     margin-left: 20px;
   }
   
   .main--fullWidth {
-    width: calc(100% - 256px);
+    width: calc(100% - 276px);
   }
   
   .main__controlBtns {
@@ -30,8 +30,8 @@
     color: #e7e9ec !important;
   }
   .main__mails {
-    overflow-y: scroll;
-    max-height: calc(100vh - 186px);
+    overflow-y: auto;
+    height: calc(100vh - 186px);
   }
   .main__mails::-webkit-scrollbar {
     width: 10px;
