@@ -43,20 +43,39 @@
     width: 100%;
     user-select: none;
   }
+
   .mail__body {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     text-align: left;
-    max-width: 35vw;
+    max-width: 40vw;
     color: #5f6368;
   }
+  @media (max-width: 1400px) {
+    .mail__body {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      text-align: left;
+      max-width: 18vw;
+      color: #5f6368;
+    }
+  }
+
+
+  .mail__titleSubtitle {
+    display: flex;
+    width: 50vw;
+    justify-content: left;
+  }
+  
+  @media (max-width: 1400px) {
   .mail__titleSubtitle {
     display: flex;
     width: 35vw;
     justify-content: left;
-    /* flex: 1 1 auto; */
- 
+    }
   }
   .mail__date__container{
     text-align: end;
