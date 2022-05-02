@@ -19,7 +19,7 @@
     "body": "Your CIT bank account information.",
     "file": "cit.html.js", 
     "subject": "Your CIT Bank Info",
-    "read": false,
+    "read": true,
     "category": "Primary",
     "date": "04/25/2022, 08:01:23"
   },  
