@@ -30,7 +30,7 @@ const Mail = ({ mailState }) => {
 
   const navigate = useNavigate();
 
-  const {user_id} = useParams();
+  const {user_id, group_id} = useParams();
   
   //console.log("read initial state", read);
   
@@ -53,7 +53,7 @@ const Mail = ({ mailState }) => {
     }
     
     // redirect to mailState.state.full_id
-    navigate(`/id/${user_id}/${mailState.state.full_id}`)
+    navigate(`/${group_id}/id/${user_id}/${mailState.state.full_id}`)
   }
 
 

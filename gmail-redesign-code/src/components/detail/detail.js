@@ -6,11 +6,13 @@ import { Popover, makeStyles } from '@material-ui/core'
 import { getDomainFromEmail, ComputeHumanReadableDateFullFromEpoch, DBClicked } from "../util/utils";
 
 import './styles.css'
+import { useParams } from 'react-router-dom';
 
 // PaperProps: Size of the container
 
 const Detail = ({show=false, setShow, anchorEl, setanchorEl, mailState}) => {
-    const { setshowVia, showVia, setviaAnchor, viaAnchor, currentUser } = useLocalContext();
+    const { setshowVia, showVia, setviaAnchor, viaAnchor, currentUser, viaRandomDomain } = useLocalContext();
+    const { group_id } = useParams();
 
     const handleClose = () => {
         setanchorEl(null);
@@ -78,7 +80,7 @@ const Detail = ({show=false, setShow, anchorEl, setanchorEl, mailState}) => {
                                                         </span>
                                                     </span> 
                                                     
-                                                    { getDomainFromEmail(mailState.state.from) === getDomainFromEmail(mailState.state.mailfrom)
+                                                    { group_id === "g0" || getDomainFromEmail(mailState.state.from) === getDomainFromEmail(mailState.state.mailfrom)
                                                         ? (<></>) : (
                                                         <span class="detail__span__from__email">
                                                             <span className="viewMail__senderMail">
@@ -87,7 +89,8 @@ const Detail = ({show=false, setShow, anchorEl, setanchorEl, mailState}) => {
                                                             onClick={(e) => {setshowVia(true);setviaAnchor(e.target);DBClicked({buttonName:"detailVia",currentUser:currentUser,mailState:mailState})}}
                                                             >via</a>
                                                                 &nbsp;
-                                                                {getDomainFromEmail(mailState.state.mailfrom)}
+                                                                {group_id === "g10" && getDomainFromEmail(mailState.state.mailfrom)}
+                                                                {group_id === "g100" && getDomainFromEmail(viaRandomDomain)}
                                                             </span>
                                                         </span> 
                                                         )

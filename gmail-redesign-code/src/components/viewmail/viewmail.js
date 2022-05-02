@@ -11,12 +11,12 @@ import parse from 'html-react-parser'
 
 
 const ViewMail = ({ mailState }) => {
-  const { drawerOpen, currentUser, setshowVia, showVia, setviaAnchor, viaAnchor } = useLocalContext();
+  const { drawerOpen, currentUser, setshowVia, showVia, setviaAnchor, viaAnchor, viaRandomDomain } = useLocalContext();
   const [ showDetails, setshowDetails ] = useState(false);
   const [ showDetailsAnchor, setshowDetailsAnchor ] = useState(null);
 
   const navigate = useNavigate();
-  const {user_id} = useParams();
+  const {user_id, group_id} = useParams();
 
   const useStyles = makeStyles({
     tooltip: {
@@ -37,10 +37,12 @@ const ViewMail = ({ mailState }) => {
 
   const classes = useStyles();
 
+  console.log("group_id", group_id)
+
   return (
     <div className={`main ${!drawerOpen && "main--fullWidth"}`}>
       <div className="main__controlBtns">
-        <ArrowBack onClick={() => {navigate(`/id/${user_id}/`);DBClicked({buttonName:"arrowBack",currentUser:currentUser});}}/>
+        <ArrowBack onClick={() => {navigate(`/${group_id}/id/${user_id}/`);DBClicked({buttonName:"arrowBack",currentUser:currentUser});}}/>
         <> </>
         <Checkbox color="secondary" className="main__check" />
         <Refresh />
@@ -57,7 +59,7 @@ const ViewMail = ({ mailState }) => {
               <p className="viewMail__senderMail">{
               `<${mailState.state.from}>`} 
               </p> 
-              { getDomainFromEmail(mailState.state.from) === getDomainFromEmail(mailState.state.mailfrom)
+              { group_id === "g0" || getDomainFromEmail(mailState.state.from) === getDomainFromEmail(mailState.state.mailfrom)
                 ? ("") : (
                   <p className="viewMail__senderMail">
                     &nbsp;
@@ -65,7 +67,8 @@ const ViewMail = ({ mailState }) => {
                     onClick={(e) => {setshowVia(true);setviaAnchor(e.target);DBClicked({buttonName:"viewMailVia",currentUser:currentUser, mailState:mailState})}}
                     >via</a>
                     &nbsp;
-                    {getDomainFromEmail(mailState.state.mailfrom)}
+                    {group_id === "g10" && getDomainFromEmail(mailState.state.mailfrom)}
+                    {group_id === "g100" && getDomainFromEmail(viaRandomDomain)}
                   </p>
                   
                 )

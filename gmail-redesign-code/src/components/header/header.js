@@ -35,7 +35,7 @@ const Header = () => {
     const {currentUser, setCurrentUser, setAutoLogin, setdrawerOpen, drawerOpen, setAppState} = useLocalContext();
 
     const navigate = useNavigate();
-    const {user_id} = useParams();
+    const {user_id, group_id} = useParams();
     
     const signout = () => {
         DBClicked({currentUser:currentUser, buttonName:"signOut"});
@@ -44,7 +44,7 @@ const Header = () => {
         setCurrentUser(null);
         //setAutoLogin(false);
         setAppState('signin');
-        navigate(`/id/${user_id}/`);
+        navigate(`/${group_id}/id/${user_id}/`);
     }
     
     const handleAvatarClick = (event) => {
@@ -65,7 +65,7 @@ const Header = () => {
                 />
                 <img className="home__logo" 
                 src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_dark_1x_r2.png" alt="Gmail" 
-                onClick={() => {navigate(`/id/${user_id}/`); ; DBClicked({currentUser:currentUser, buttonName:"homeLogo"});}}
+                onClick={() => {navigate(`/${group_id}/id/${user_id}/`); ; DBClicked({currentUser:currentUser, buttonName:"homeLogo"});}}
                 />
             </div>
 

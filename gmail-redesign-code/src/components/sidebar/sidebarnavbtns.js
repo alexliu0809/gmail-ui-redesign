@@ -35,7 +35,7 @@ const vals = {
 
 const SideButton = (props) => {
     const navigate = useNavigate();
-    const {user_id} = useParams();
+    const {user_id, group_id} = useParams();
 
     const {drawerOpen, setactiveSideBarTab, activeSideBarTab, currentUser} = useLocalContext();
     const {primaryUnreadNumber, socialUnreadNumber, promoUnreadNumber} = useMailContext();
@@ -44,7 +44,7 @@ const SideButton = (props) => {
         <div className={`sidebar__btn sidebar__topBtn ${
             !drawerOpen && "sidebar__btnClose"
               } ${activeSideBarTab === props.name && "sidebar__active"}`}
-              onClick={() => {setactiveSideBarTab(props.name);navigate(`/id/${user_id}/`);DBClicked({buttonName:"sideBar"+props.name,currentUser:currentUser})}}
+              onClick={() => {setactiveSideBarTab(props.name);navigate(`/${group_id}/id/${user_id}/`);DBClicked({buttonName:"sideBar"+props.name,currentUser:currentUser})}}
               >
             <div
             className={`sidebar__btnLeft ${

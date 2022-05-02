@@ -24,6 +24,7 @@ export function ContextProvider({ children }){
     const [ showVia, setshowVia ] = useState(false);
     const [ viaAnchor, setviaAnchor ] = useState(null);
 
+    let viaRandomDomain = "host@r1xaz.xyz";
     
 
     const value = {
@@ -45,6 +46,7 @@ export function ContextProvider({ children }){
         setviaAnchor,
         autoLogin,
         setAutoLogin,
+        viaRandomDomain,
     };
 
     return(

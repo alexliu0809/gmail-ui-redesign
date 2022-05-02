@@ -31,7 +31,7 @@ const Signin = () =>{
     const [emailFormatError, setemailFormatError] = useState('')
     const [passwordWrongError, setpasswordWrongError] = useState({state:false,msg:''})
     
-    const {user_id} = useParams();
+    const {user_id, group_id} = useParams();
     const [userEmail, setuserEmail] = useState(`participant.${user_id}@gmail.com`);
     const [userPassword, setuserPassword] = useState('abcd1234');
 

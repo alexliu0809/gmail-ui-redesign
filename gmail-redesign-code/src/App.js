@@ -21,9 +21,17 @@ const isDesiredUserID = (user_id)=>{
   return false;
 }
 
+const isDesiredGroupID = (group_id) => {
+  if (group_id === "g0" || group_id === "g10" || group_id === "g100"){
+    return true;
+  }
+  return false;
+}
+
+
 const GenApp = ( {appState} ) => {
-  let user_id = useParams();
-  if (isDesiredUserID(user_id.user_id)){
+  let { user_id, group_id} = useParams();
+  if (isDesiredUserID(user_id) && isDesiredGroupID(group_id)){
     return (
       <div className="App">
         {appState === "signin" && <Signin></Signin>}
@@ -36,7 +44,6 @@ const GenApp = ( {appState} ) => {
       <Navigate replace to="/idnotexist" />
     )
   } 
-  
 }
 
 const isSmall = () => {
@@ -55,7 +62,7 @@ function App() {
   const { appState, setAppState, autoLogin } = useLocalContext();
   const { allMailStates } = useMailContext();
 
-  const {user_id} = useParams();
+  const {user_id, group_id} = useParams();
   
   useEffect(() => {
     if (appState === 'loading'){
@@ -73,7 +80,7 @@ function App() {
     <Router>
       <Routes>
         {allMailStates.map((mailState, index) => {
-                return <Route key={`${mailState.state.full_id}`} path={`/id/:user_id/${mailState.state.full_id}`} element={
+                return <Route key={`${mailState.state.full_id}`} path={`/:group_id/id/:user_id/${mailState.state.full_id}`} element={
                   <Home mailState={mailState} showMails={false}/>
                 }>
                 </Route>
@@ -86,7 +93,7 @@ function App() {
         }>
         </Route>
         
-        <Route path="/id/:user_id" 
+        <Route path="/:group_id/id/:user_id" 
           element={<GenApp appState={appState} />}
         >
         </Route>
