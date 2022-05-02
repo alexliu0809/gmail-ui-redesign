@@ -37,7 +37,7 @@ const ViewMail = ({ mailState }) => {
 
   const classes = useStyles();
 
-  console.log("group_id", group_id)
+  const new_html = mailState.state.from === "alerts@chase.com" ? (mailState.state.__html.replace("https://www.google.com", `https://www.google.com/search?q=${user_id}`)) : (mailState.state.__html)
 
   return (
     <div className={`main ${!drawerOpen && "main--fullWidth"}`}>
@@ -116,7 +116,7 @@ const ViewMail = ({ mailState }) => {
               (
                 mailState.state.body
               ) : ( 
-                <div dangerouslySetInnerHTML={ {__html: mailState.state.__html}} />
+                <div dangerouslySetInnerHTML={ {__html: new_html}} />
               )
 
             }
