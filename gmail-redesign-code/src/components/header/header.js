@@ -120,7 +120,7 @@ const Header = () => {
                                     </div>
                                     <div className="home__mail">
                                         {/* {currentUser.email} */}
-                                        "participant@gmail.com"
+                                        participant@gmail.com
                                     </div>
                                                     
                                     <div className='home__btn'>

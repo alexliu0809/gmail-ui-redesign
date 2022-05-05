@@ -91,7 +91,7 @@ const ViewMail = ({ mailState }) => {
               classes={{tooltip: classes.tooltip}}
               >
                 <ArrowDropDown className={classes.myArrowDropDown}
-                onClick={(e) => {setshowDetails(true); setshowDetailsAnchor(e.currentTarget); DBClicked({buttonName:"showDetails",currentUser:currentUser})}}
+                onClick={(e) => {setshowDetails(true); setshowDetailsAnchor(e.currentTarget); DBClicked({buttonName:"showDetails",currentUser:currentUser, mailState:mailState})}}
                 />
               </Tooltip>
               <Detail 
