@@ -119,7 +119,8 @@ const Header = () => {
                                         {currentUser.displayName}
                                     </div>
                                     <div className="home__mail">
-                                        {currentUser.email}
+                                        {/* {currentUser.email} */}
+                                        "participant@gmail.com"
                                     </div>
                                                     
                                     <div className='home__btn'>

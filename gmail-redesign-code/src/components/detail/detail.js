@@ -108,7 +108,8 @@ const Detail = ({show=false, setShow, anchorEl, setanchorEl, mailState}) => {
                                             <span class="detail__outter__most__span">
                                                 <span>
                                                     { /* mailState.state.to */}
-                                                    {currentUser.email}
+                                                    {/* {currentUser.email} */}
+                                                    "participant@gmail.com"
                                                 </span>
                                             </span>
                                         </td>
