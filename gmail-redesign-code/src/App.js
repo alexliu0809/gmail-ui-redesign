@@ -10,15 +10,19 @@ import { ErrorPageNotFound, ErrorNoID, ErrorScreenTooSmaller } from "./component
 // import { AutoSignIn } from "./components/signin/signin";
 
 const isDesiredUserID = (user_id)=>{
-  if (user_id === "test"){
+  if (user_id !== ""){
     return true;
   }
- 
-  const parsed = parseInt(user_id);
-  if (!isNaN(parsed) && (parsed >= 0) && (parsed <= 100)) { 
-    return true; 
-  }
   return false;
+  // if (user_id === "test"){
+  //   return true;
+  // }
+ 
+  // const parsed = parseInt(user_id);
+  // if (!isNaN(parsed) && (parsed >= 0) && (parsed <= 100)) { 
+  //   return true; 
+  // }
+  // return false;
 }
 
 const isDesiredGroupID = (group_id) => {

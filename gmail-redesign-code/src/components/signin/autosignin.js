@@ -13,7 +13,7 @@ export const SignUpAndSignIn = (userEmail, userPassword, user_id, appState, setA
     .then(() => {
       auth.currentUser
         .updateProfile({
-          displayName: `Participant ${user_id}`,
+          displayName: `Participant`,
         })
         .then(() => {
           console.log(`Auto Signup Success`)

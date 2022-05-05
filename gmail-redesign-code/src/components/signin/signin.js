@@ -15,7 +15,6 @@ import './styles.css'
 
 // const {user_id} = useParams();
 // const [userPassword, setuserPassword] = useState('abcd1234');
-// const [userEmail, setuserEmail] = useState(`participant.${user_id}@gmail.com`);
   
 
 const Signin = () =>{
@@ -32,7 +31,7 @@ const Signin = () =>{
     const [passwordWrongError, setpasswordWrongError] = useState({state:false,msg:''})
     
     const {user_id, group_id} = useParams();
-    const [userEmail, setuserEmail] = useState(`participant.${user_id}@gmail.com`);
+    const [userEmail, setuserEmail] = useState(`participant@gmail.com`);
     const [userPassword, setuserPassword] = useState('abcd1234');
 
     useEffect(() => {
