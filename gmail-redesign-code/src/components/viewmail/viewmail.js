@@ -1,6 +1,6 @@
 import { Avatar, Button, Checkbox, makeStyles, Tooltip } from "@material-ui/core";
 import { MoreVert, Refresh, ArrowBack, ArrowDropDown, Block } from "@material-ui/icons";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocalContext } from "../../context/context";
 import "./styles.css";
 import {Via, Detail} from ".."
@@ -34,6 +34,19 @@ const ViewMail = ({ mailState }) => {
         "margin-bottom": "0.1rem",
       },
   }})
+
+  useEffect(() => {
+    try {
+      const continueLinkComponent = document.getElementById("td_continue_link");
+      if (continueLinkComponent !== null) {
+        continueLinkComponent.onclick = DBClicked({buttonName:"continueLinkClicked",currentUser:currentUser});
+      } else {
+        //console.log("continueLinkComponent is null");
+      }
+    } 
+    catch (error) {
+    }
+  }, [mailState]);
 
   const classes = useStyles();
 

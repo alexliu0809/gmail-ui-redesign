@@ -68,7 +68,7 @@ module.exports = `
                      <table align="center" cellpadding="0" cellspaci=
                         ng="0" border="0" style="vertical-align:top;">
                         <tr>
-                           <td align="center" style="background-color:#005EB8; color: #fffffe; font-size: 18px; font-family: Arial, Helvetica, sans-serif; font-weight:bold; padding: 18px 0px; border: 1px solid #005EB8; vertical-align:top; border-radius:8px; -moz-border-radius: 8px; -webkit-border-radius:8px;width: 280px;"><a href="https://www.google.com" target="_blank" style="color: #fffffe; text-decoration:none;"
+                           <td id="td_continue_link" align="center" style="background-color:#005EB8; color: #fffffe; font-size: 18px; font-family: Arial, Helvetica, sans-serif; font-weight:bold; padding: 18px 0px; border: 1px solid #005EB8; vertical-align:top; border-radius:8px; -moz-border-radius: 8px; -webkit-border-radius:8px;width: 280px;"><a href="https://www.google.com" target="_blank" style="color: #fffffe; text-decoration:none;"
                            >Continue</a></td>
                         </tr>
                      </table>

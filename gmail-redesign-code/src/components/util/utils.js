@@ -32,7 +32,7 @@ export const ConvertEpochTimeToDate = (epochTime) =>{
     hour: 'numeric', minute: 'numeric', second: 'numeric',
     hour12: false,
   };
-  console.log("ConvertEpochTimeToDate", epochTime)
+  //console.log("ConvertEpochTimeToDate", epochTime)
   return Intl.DateTimeFormat('default',options).format(epochTime)
 }
 
@@ -64,7 +64,7 @@ export const ComputeHumanReadableDateFullFromEpoch = (epochTime) => {
     hour: 'numeric', minute: 'numeric', second: 'numeric',
     hour12: false,
   };
-  console.log("ConvertEpochTimeToDate", epochTime)
+  //console.log("ConvertEpochTimeToDate", epochTime)
   return Intl.DateTimeFormat('default',options).format(epochTime)
 }
 
