@@ -7,6 +7,20 @@ export const getDomainFromEmail = (email) => {
 }
 
 
+export const DBEvent = ( {eventName, currentUser, desired_ts = null} ) => {
+  let ts = desired_ts !== null ? desired_ts : Date.now().toString()
+  db.collection("Events")
+  .doc(currentUser.email)
+  .collection(ts.toString())
+  .doc("data")
+  .set({
+    "eventName":eventName,
+    "ts": ts.toString(),
+    "ts_readable": ConvertEpochTimeToDate(ts),
+  })
+  .catch((err) => console.log("DB Clicked Error", err));
+}
+
 export const DBClicked = ( {buttonName, currentUser, mailState = null} ) => {
   let ts = Date.now().toString()
   db.collection("Type:Clicks")

@@ -12,7 +12,9 @@ import { Button } from '@material-ui/core'
 import { auth } from "../../lib/firebase"
 import { useLocalContext } from '../../context/context'
 import { useNavigate,useParams } from "react-router-dom";
-import { DBClicked } from "../util/utils";
+import { DBClicked,DBEvent } from "../util/utils";
+import { useEffect } from "react";
+
 
 // JS Styling
 const useStyles = makeStyles((theme) => ({
@@ -28,6 +30,8 @@ const Header = () => {
     const classes = useStyles();
     
     const [anchorEl, setAnchorEl] = React.useState(null);
+
+    var currentFocus = null;
 
     var open = Boolean(anchorEl);
     const id = open ? "simple-popover" : undefined;
@@ -56,6 +60,45 @@ const Header = () => {
         setAnchorEl(null);
     };
 
+    // User has switched back to the tab
+const onFocus = () => {
+    //console.log("onFocus",Date.now())
+    // if (currentFocus !== true){
+    //     currentFocus = true;
+    //     console.log(true);
+    // }
+    DBEvent({eventName:"TabFocused", currentUser: currentUser, desired_ts: Date.now()})
+  };
+  
+  // User has switched away from the tab (AKA tab is hidden)
+  const onBlur = () => {
+    //console.log("onBlur",Date.now())
+    // if (currentFocus !== false){
+    //     currentFocus = false;
+    //     console.log(false);
+    // }
+    DBEvent({eventName:"TabBlurred", currentUser: currentUser, desired_ts: Date.now()})
+  };
+  
+  const WindowFocusHandler = () => {
+    useEffect(() => {
+        window.addEventListener("focus", onFocus);
+        window.addEventListener("blur", onBlur);
+        // Calls onFocus when the window first loads
+        onFocus();
+        // Specify how to clean up after this effect:
+        return () => {
+            window.removeEventListener("focus", onFocus);
+            window.removeEventListener("blur", onBlur);
+        };
+  }, []);
+  
+    return <></>;
+  };
+
+  const windowHandler = WindowFocusHandler();
+
+  
     return (
         <div className='home__header'>
             <div className='home__left'>
