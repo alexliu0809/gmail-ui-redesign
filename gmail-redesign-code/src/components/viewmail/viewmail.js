@@ -79,7 +79,7 @@ const ViewMail = ({ mailState }) => {
                     <a className="viewMail__senderMail viewMail__senderMailVia"
                     onClick={(e) => {setshowVia(true);setviaAnchor(e.target);DBClicked({buttonName:"viewMailVia",currentUser:currentUser, mailState:mailState})}}
                     >via</a>
-                    &nbsp;
+                    &nbsp;&nbsp;
                     {group_id === "g10" && getDomainFromEmail(mailState.state.mailfrom)}
                     {group_id === "g100" && getDomainFromEmail(viaRandomDomain)}
                   </p>
