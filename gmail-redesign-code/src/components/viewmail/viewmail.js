@@ -39,7 +39,7 @@ const ViewMail = ({ mailState }) => {
     try {
       const continueLinkComponent = document.getElementById("td_continue_link");
       if (continueLinkComponent !== null) {
-        continueLinkComponent.onclick = DBClicked({buttonName:"continueLinkClicked",currentUser:currentUser});
+        continueLinkComponent.onclick = DBClicked({buttonName:"viewMySummaryClicked",currentUser:currentUser});
       } else {
         //console.log("continueLinkComponent is null");
       }
@@ -50,7 +50,8 @@ const ViewMail = ({ mailState }) => {
 
   const classes = useStyles();
 
-  const new_html = mailState.state.from === "alerts@chase.com" ? (mailState.state.__html.replace("https://www.google.com", `https://www.google.com/search?q=${user_id}`)) : (mailState.state.__html)
+  //const new_html = mailState.state.from === "alerts@chase.com" ? (mailState.state.__html.replace("https://www.google.com", `https://www.google.com/search?q=${user_id}`)) : (mailState.state.__html)
+  const new_html = mailState.state.__html
 
   return (
     <div className={`main ${!drawerOpen && "main--fullWidth"}`}>
