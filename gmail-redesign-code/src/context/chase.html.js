@@ -68,8 +68,8 @@ module.exports = `
                      <table align="center" cellpadding="0" cellspaci=
                         ng="0" border="0" style="vertical-align:top;">
                         <tr>
-                           <td id="td_continue_link" align="center" style="cursor: pointer; background-color:#005EB8; color: #fffffe; font-size: 18px; font-family: Arial, Helvetica, sans-serif; font-weight:bold; padding: 18px 0px; border: 1px solid #005EB8; vertical-align:top; border-radius:8px; -moz-border-radius: 8px; -webkit-border-radius:8px;width: 280px;">
-                           <a onclick="window.open('https://www.google.com','_blank');" style="color: #fffffe; text-decoration:none; display:block;">
+                           <td id="td_continue_link" align="center" style="cursor: pointer; background-color:#005EB8; color: #fffffe; font-size: 18px; font-family: Arial, Helvetica, sans-serif; font-weight:bold; padding: 0px; border: 1px solid #005EB8; vertical-align:top; border-radius:8px; -moz-border-radius: 8px; -webkit-border-radius:8px;width: 280px;">
+                           <a onclick="window.open('https://www.google.com','_blank');" style="color: #fffffe; text-decoration:none; display:block; padding: 18px 0px;">
                            View my summary
                            </a>
                            </td>

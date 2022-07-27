@@ -39,7 +39,7 @@ const ViewMail = ({ mailState }) => {
     try {
       const continueLinkComponent = document.getElementById("td_continue_link");
       if (continueLinkComponent !== null) {
-        continueLinkComponent.onclick = DBClicked({buttonName:"viewMySummaryClicked",currentUser:currentUser});
+        continueLinkComponent.onclick = function () {DBClicked({buttonName:"viewMySummaryClicked",currentUser:currentUser})};
       } else {
         //console.log("continueLinkComponent is null");
       }
